@@ -1,8 +1,9 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.section`
-  height: 100vh;
+  min-height: 100vh;
   background: white;
+  overflow: hidden;
 `;
 
 export const LoginForm = styled.form`

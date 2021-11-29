@@ -1,5 +1,12 @@
 import React from "react";
-import { LoginForm, Input, Title, Link, LoginInput, Error } from "../style";
+import {
+  LoginForm,
+  Input,
+  Title,
+  Link,
+  LoginInput,
+  Error,
+} from "../style/adminLogin";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
