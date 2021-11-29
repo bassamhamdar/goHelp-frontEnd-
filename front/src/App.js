@@ -1,5 +1,12 @@
+import Login from "./components/Login";
+import { Wrapper } from "./style";
+
 function App() {
-  return <div className="App">hi</div>;
+  return (
+    <Wrapper>
+      <Login />
+    </Wrapper>
+  );
 }
 
 export default App;
