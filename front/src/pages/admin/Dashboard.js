@@ -1,6 +1,12 @@
 import React from "react";
-import { TtilePage } from "../../style/app";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { SideNav } from "../../components/SideNav";
+import { Wrapper } from "../../style/login";
 
 export const Dashboard = () => {
-  return <TtilePage>Home Dash</TtilePage>;
+  return (
+    <Wrapper>
+      <SideNav />
+    </Wrapper>
+  );
 };
