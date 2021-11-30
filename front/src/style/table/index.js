@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledTable = styled.table`
   left: 50%;
-  top: 20%;
+  top: ${(props) => (props.Reg ? "80%" : "20%")};
   position: absolute;
   transform: translate(-50%, -50%);
   width: 50%;
@@ -46,7 +46,7 @@ th {
     }
   }
   thead > tr {
-    background-color: #c2c2c2;
+    background-color: ${(props) => (props.org ? "#3d9970" : "#c2c2c2")};
   }
   caption {
     font-size: 0.9em;
