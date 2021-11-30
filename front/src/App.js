@@ -1,6 +1,6 @@
 import Login from "./components/Login";
 import { SideNav } from "./components/SideNav";
-import { Wrapper } from "./style/adminLogin";
+import { Wrapper } from "./style/login";
 import { Dashboard } from "./pages/admin/Dashboard";
 import { UsersDashboard } from "./pages/admin/UsersDashboard";
 import { OrgDashboard } from "./pages/admin/OrgDashboard";

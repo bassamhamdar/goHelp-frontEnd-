@@ -1,5 +1,5 @@
 import React from "react";
-
+import { TtilePage } from "../../style/app";
 export const AboutDashboard = () => {
-  return <h1>About</h1>;
+  return <TtilePage>About</TtilePage>;
 };

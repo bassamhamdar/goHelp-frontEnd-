@@ -3,15 +3,17 @@ export const Menu = styled.div`
   width: ${(props) => props.width};
   background-color: #3d9970;
   padding-left: 1rem;
-  min-height: 100vh;
-  overflow: hidden;
+  top: 0;
+  bottom: 0;
+  position: absolute;
 `;
 
 export const SideBar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  min-height: 100vh;
+  max-height: 100%;
+  height: 80%;
 `;
 export const Burger = styled.div`
   padding-top: 1rem;

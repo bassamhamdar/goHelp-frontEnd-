@@ -1,5 +1,6 @@
 import React from "react";
+import { TtilePage } from "../../style/app";
 
 export const Dashboard = () => {
-  return <h1>Home Dash</h1>;
+  return <TtilePage>Home Dash</TtilePage>;
 };

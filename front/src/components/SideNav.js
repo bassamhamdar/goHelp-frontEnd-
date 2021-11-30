@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { SideBar, Link, Line, Menu, Burger } from "../style/adminSideNav";
+import { SideBar, Link, Line, Menu, Burger } from "../style/sideNav";
 export const SideNav = () => {
   const [width, setWidth] = useState("5%");
   const [display, setDisplay] = useState("none");

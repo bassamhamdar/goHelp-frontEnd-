@@ -1,5 +1,6 @@
 import React from "react";
+import { TtilePage } from "../../style/app";
 
 export const OrgDashboard = () => {
-  return <h1>Org</h1>;
+  return <TtilePage>Org</TtilePage>;
 };
