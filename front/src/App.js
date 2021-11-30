@@ -1,4 +1,5 @@
 import Login from "./components/Login";
+import UserLogin from "./components/UserLogin";
 import { Wrapper } from "./style/login";
 import { SideNav } from "./components/SideNav";
 import { Dashboard } from "./pages/admin/Dashboard";
@@ -13,6 +14,8 @@ function App() {
       <Wrapper>
         <SideNav />
         <Switch>
+          <Route path="/user/login" exact component={UserLogin} />
+
           <Route path="/admin" exact component={Login} />
           <Route path="/dashboard" exact component={Dashboard} />
           <Route path="/user" component={UsersDashboard} />
