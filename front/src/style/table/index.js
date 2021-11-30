@@ -21,20 +21,15 @@ export const StyledTable = styled.table`
               text-bottom | middle | top | bottom | 
               <percentage> | <length> */
 
-  /* tbody {
-  vertical-align: top;
-}              */
   td,
   th {
     border: none;
   }
-  /* td,
-th {
-  border: 1px solid;
-} */
 
   td {
-    padding: 5px 10px;
+    padding: 10px;
+    width: 20px;
+    text-align: center;
   }
 
   tbody tr {
