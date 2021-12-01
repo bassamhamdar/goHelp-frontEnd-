@@ -1,12 +1,10 @@
 import styled from "styled-components";
 
 export const StyledTable = styled.table`
-  margin-top: 1rem;
-  left: 50%;
-  top: ${(props) => (props.Reg ? "80%" : "20%")};
-  position: absolute;
-  transform: translate(-50%, -50%);
+  margin-top: 2rem;
   width: 50%;
+  margin-left: auto;
+  margin-right: auto;
 
   caption-side: top;
   border: none;

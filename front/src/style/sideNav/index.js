@@ -4,20 +4,21 @@ export const Menu = styled.div`
   background-color: #3d9970;
   padding-left: 1rem;
   top: 0;
-  bottom: 0;
-  position: absolute;
+  height: 100%;
+  position: fixed;
+  transition: all 0.7s;
 `;
 
 export const SideBar = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  max-height: 100%;
-  height: 80%;
+  height: 100%;
 `;
 export const Burger = styled.div`
   padding-top: 1rem;
   cursor: pointer;
+  width: 43px;
 `;
 export const Link = styled.a`
   text-decoration: none;

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   min-height: 100vh;
   background: white;
-  overflow: hidden;
+  margin-bottom: 2rem;
 `;
 
 export const LoginForm = styled.form`
