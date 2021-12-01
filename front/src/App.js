@@ -3,29 +3,22 @@ import UserLogin from "./components/UserLogin";
 import { Wrapper } from "./style/login";
 import { SideNav } from "./components/SideNav";
 import { Dashboard } from "./pages/admin/Dashboard";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import { UsersDashboard } from "./pages/admin/UsersDashboard";
-import { OrgDashboard } from "./pages/admin/OrgDashboard";
-import { FaqDashboard } from "./pages/admin/FaqDashboard";
-import { AboutDashboard } from "./pages/admin/AboutDashboard";
+import { Route, Switch, useHistory } from "react-router-dom";
 import { UserProfile } from "./pages/user/UserProfile";
 function App() {
+  const history = useHistory();
+  const path = history.location.pathname;
+  const condition = path.split("/", 2)[1];
   return (
-    <Router>
-      <Wrapper>
-        <SideNav />
-        <Switch>
-          <Route path="/user/login" exact component={UserLogin} />
-          <Route path="/user/profile" exact component={UserProfile} />
-          <Route path="/admin" exact component={Login} />
-          <Route path="/dashboard" exact component={Dashboard} />
-          <Route path="/user" component={UsersDashboard} />
-          <Route path="/org" exact component={OrgDashboard} />
-          <Route path="/faq" component={FaqDashboard} />
-          <Route path="/about" component={AboutDashboard} />
-        </Switch>
-      </Wrapper>
-    </Router>
+    <Wrapper>
+      {condition === "dashboard" ? <SideNav /> : null}
+      <Switch>
+        <Route path="/user/login" component={UserLogin} />
+        <Route path="/user/profile" component={UserProfile} />
+        <Route path="/admin" component={Login} />
+        <Dashboard />
+      </Switch>
+    </Wrapper>
   );
 }
 

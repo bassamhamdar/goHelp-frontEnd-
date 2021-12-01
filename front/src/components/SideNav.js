@@ -19,16 +19,16 @@ export const SideNav = () => {
         <Line></Line>
       </Burger>
       <SideBar>
-        <Link href="about" display={display}>
+        <Link href="/dashboard/about" display={display}>
           About
         </Link>
-        <Link href="/faq" display={display}>
+        <Link href="/dashboard/faq" display={display}>
           FAQ
         </Link>
-        <Link href="/user" display={display}>
+        <Link href="/dashboard/user" display={display}>
           Users
         </Link>
-        <Link href="/org" display={display}>
+        <Link href="/dashboard/org" display={display}>
           Organizations
         </Link>
       </SideBar>

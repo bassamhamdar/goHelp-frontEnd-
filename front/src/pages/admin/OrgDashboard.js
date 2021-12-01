@@ -41,7 +41,6 @@ export const OrgDashboard = () => {
             <td>org 2 activity name</td>
             <td>email@gmail.com</td>
             <td>Approved</td>
-
             <td>
               <SiAdblock style={{ color: "red", padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />
@@ -52,29 +51,26 @@ export const OrgDashboard = () => {
             <td>org 2 activity name</td>
             <td>email@gmail.com</td>
             <td>Approved</td>
-
             <td>
               <SiAdblock style={{ color: "red", padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />
             </td>
-          </tr>{" "}
+          </tr>
           <tr>
             <td>org 2</td>
             <td>org 2 activity name</td>
             <td>email@gmail.com</td>
             <td>Approved</td>
-
             <td>
               <SiAdblock style={{ color: "red", padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />
             </td>
-          </tr>{" "}
+          </tr>
           <tr>
             <td>org 2</td>
             <td>org 2 activity name</td>
             <td>email@gmail.com</td>
             <td>Approved</td>
-
             <td>
               <SiAdblock style={{ color: "red", padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />
@@ -116,7 +112,6 @@ export const OrgDashboard = () => {
             <td>org 2 activity name</td>
             <td>email@gmail.com</td>
             <td>Approved</td>
-
             <td>
               <SiAdblock style={{ color: "red", padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />
@@ -127,7 +122,6 @@ export const OrgDashboard = () => {
             <td>org 2 activity name</td>
             <td>email@gmail.com</td>
             <td>Approved</td>
-
             <td>
               <SiAdblock style={{ color: "red", padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />
@@ -138,7 +132,6 @@ export const OrgDashboard = () => {
             <td>org 2 activity name</td>
             <td>email@gmail.com</td>
             <td>Approved</td>
-
             <td>
               <SiAdblock style={{ color: "red", padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />
@@ -149,7 +142,6 @@ export const OrgDashboard = () => {
             <td>org 2 activity name</td>
             <td>email@gmail.com</td>
             <td>Approved</td>
-
             <td>
               <SiAdblock style={{ color: "red", padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />

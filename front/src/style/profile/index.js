@@ -5,10 +5,11 @@ export const Wrapper = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 75%;
+  width: 100%;
   display: flex;
   box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
   height: 100vh;
+  margin-bottom: 0;
 `;
 export const Left = styled.div`
   width: 20%;

@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledTable = styled.table`
   margin-top: 2rem;
+  margin-bottom: 4rem;
   width: 50%;
   margin-left: auto;
   margin-right: auto;
@@ -9,16 +10,16 @@ export const StyledTable = styled.table`
   caption-side: top;
   border: none;
   border-collapse: collapse;
-  /* border-collapse: separate; */
-  /* border-spacing: 5px 10px; */
+  // border-collapse: separate;
+  border-spacing: 5px 10px;
 
   caption-side: bottom;
-  /* empty-cell: show | hide;  */
-  /* empty-cell is a property of table or the cells themselves */
+  empty-cell: show | hide;
+  empty-cell is a property of table or the cells themselves 
 
-  /* vertical-align: baseline | sub | super | text-top | 
+  vertical-align: baseline | sub | super | text-top | 
               text-bottom | middle | top | bottom | 
-              <percentage> | <length> */
+              <percentage> | <length> 
 
   td,
   th {
