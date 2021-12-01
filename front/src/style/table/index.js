@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const StyledTable = styled.table`
+  margin-top: 1rem;
   left: 50%;
   top: ${(props) => (props.Reg ? "80%" : "20%")};
   position: absolute;
@@ -27,7 +28,7 @@ export const StyledTable = styled.table`
   }
 
   td {
-    padding: 10px;
+    padding: 5px;
     width: 20px;
     text-align: center;
   }
