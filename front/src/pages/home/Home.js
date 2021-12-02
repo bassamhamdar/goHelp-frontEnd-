@@ -3,7 +3,6 @@ import {
   Circle,
   Flex,
   FlexItem,
-  Footer,
   FooterH1,
   FooterH3,
   FooterSection,
