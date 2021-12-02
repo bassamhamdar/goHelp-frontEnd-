@@ -6,7 +6,7 @@ import Image2 from "../../image/homepage.jpg";
 export const HeaderImage = styled.div`
   background-image: url(${Image2});
   background-position: center;
-  height: 350px;
+  height: 280px;
   margin: 0 2rem 0 2rem;
 `;
 
@@ -45,7 +45,7 @@ export const H3 = styled.h3`
   margin-top: 1rem;
   margin-bottom: 2rem;
 `;
-export const Footer = styled.div`
+export const Organization = styled.div`
   color: hsl(240, 75%, 10%);
   display: flex;
   justify-content: center;
@@ -71,4 +71,20 @@ export const FooterH1 = styled.h1`
   margin-left: 2rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
+`;
+export const FooterSection = styled.div`
+  background-color: #002129;
+  height: 300px;
+  display: flex;
+  justify-content: ;
+`;
+export const Section = styled.section``;
+export const FooterH3 = styled.h3`
+  margin-top: 1rem;
+  text-alin: center;
+  color: white;
+`;
+export const P = styled.p`
+  color: white;
+  margin-top: 2rem;
 `;

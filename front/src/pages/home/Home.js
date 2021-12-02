@@ -5,10 +5,15 @@ import {
   FlexItem,
   Footer,
   FooterH1,
+  FooterH3,
+  FooterSection,
   H1,
   H3,
   HeaderImage,
+  Organization,
+  P,
   RegisterButton,
+  Section,
 } from "../../style/home";
 import Profile from "../../image/profile-icon.png";
 import Ngo from "../../image/ngo.jpg";
@@ -33,10 +38,33 @@ export const Home = () => {
           <H3>Send help/donate request</H3>
         </FlexItem>
       </Flex>
-      <Footer>
+      <Organization>
         <FooterH1>For organizations {"->"} </FooterH1>
         <RegisterButton>Register here</RegisterButton>
-      </Footer>
+      </Organization>
+      <FooterSection>
+        <Section>
+          <FooterH3>Learn More</FooterH3>
+          <P>How goHelp works</P>
+          <P>Success stories</P>
+          <P>Supported countries</P>
+          <P>Pricing</P>
+        </Section>
+        <Section>
+          <FooterH3>Use Cases</FooterH3>
+          <P>Medical</P>
+          <P>Food</P>
+          <P>Clothes</P>
+          <P>Corona Virus</P>
+        </Section>
+        <Section>
+          <FooterH3>Resources</FooterH3>
+          <P>Careers</P>
+          <P>Help Center</P>
+          <P>Press Center</P>
+          <P>Media</P>
+        </Section>
+      </FooterSection>
     </>
   );
 };
