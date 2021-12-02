@@ -5,6 +5,7 @@ import { SideNav } from "./components/SideNav";
 import { Dashboard } from "./pages/admin/Dashboard";
 import { Route, Switch, useHistory } from "react-router-dom";
 import { UserProfile } from "./pages/user/UserProfile";
+import { Home } from "./pages/home/Home";
 function App() {
   const history = useHistory();
   const path = history.location.pathname;
@@ -13,6 +14,7 @@ function App() {
     <Wrapper>
       {condition === "dashboard" ? <SideNav /> : null}
       <Switch>
+        <Route path="/" exact component={Home} />
         <Route path="/user/login" component={UserLogin} />
         <Route path="/user/profile" component={UserProfile} />
         <Route path="/admin" component={Login} />
