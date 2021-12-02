@@ -7,7 +7,8 @@ export const HeaderImage = styled.div`
   background-image: url(${Image2});
   background-position: center;
   height: 280px;
-  margin: 0 2rem 0 2rem;
+  margin: 4rem 2rem 0 2rem;
+  padding-top: 100px;
 `;
 
 export const H1 = styled.h1`
@@ -76,15 +77,16 @@ export const FooterSection = styled.div`
   background-color: #002129;
   height: 300px;
   display: flex;
-  justify-content: ;
+  justify-content: space-around;
 `;
 export const Section = styled.section``;
 export const FooterH3 = styled.h3`
   margin-top: 1rem;
-  text-alin: center;
+  text-align: center;
   color: white;
 `;
 export const P = styled.p`
+  text-align: center;
   color: white;
   margin-top: 2rem;
 `;
