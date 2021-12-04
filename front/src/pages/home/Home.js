@@ -5,6 +5,7 @@ import {
   FlexItem,
   FooterH3,
   FooterSection,
+  H1,
   H3,
   HeaderImage,
   ImageHeader,
@@ -15,9 +16,9 @@ import {
   RegisterH1,
   Section,
 } from "../../style/home";
-import Profile from "../../image/profile-icon.png";
+import Profile from "../../image/profile.webp";
+import Request from "../../image/help.webp";
 import Ngo from "../../image/ngo.jpg";
-import Request from "../../image/request.png";
 import { AboutUs } from "./AboutUs";
 
 export const Home = () => {
@@ -28,6 +29,7 @@ export const Home = () => {
         <ImageParg>do not let them down</ImageParg>
       </HeaderImage>
       <AboutUs />
+      <H1>Here's how it works</H1>
       <Flex>
         <FlexItem>
           <Circle img={Profile}></Circle>

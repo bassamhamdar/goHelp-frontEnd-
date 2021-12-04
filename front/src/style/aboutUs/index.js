@@ -9,7 +9,7 @@ export const AboutCol = styled.div`
   margin: 2rem;
   padding: 2rem;
   min-height: 200px;
-  background: #125488;
+  background: #005c55;
 `;
 
 export const Icon = styled.img`

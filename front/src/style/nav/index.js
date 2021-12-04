@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const NavMenu = styled.div`
   height: 50px;
   width: 100%;
-  background-color: #002129;
+  background: #00857c;
   position: fixed;
   top: 0;
   display: flex;

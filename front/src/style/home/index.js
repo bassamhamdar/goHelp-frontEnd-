@@ -26,7 +26,7 @@ export const ImageParg = styled.p`
   color: white;
 `;
 export const H1 = styled.h1`
-  color: hsl(240, 75%, 10%);
+  color: black;
   font-size: xxx-large;
   width: 25%;
   margin: auto;
@@ -53,7 +53,7 @@ export const FlexItem = styled.div`
   margin: 2rem;
 `;
 export const H3 = styled.h3`
-  color: hsl(240, 75%, 10%);
+  color: black;
   font-size: large;
   margin: auto;
   text-align: center;
@@ -81,14 +81,14 @@ export const RegisterButton = styled.button`
   cursor: pointer;
 `;
 export const RegisterH1 = styled.h1`
-  color: hsl(240, 75%, 10%);
+  color: black;
   font-size: xxx-large;
   margin-left: 2rem;
   margin-top: 1rem;
   margin-bottom: 2rem;
 `;
 export const FooterSection = styled.div`
-  background-color: #002129;
+  background-color: #00857c;
   height: 300px;
   display: flex;
   justify-content: space-around;
