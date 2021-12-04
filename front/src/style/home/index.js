@@ -5,9 +5,26 @@ export const HeaderImage = styled.div`
   background-image: url(${Image4});
   background-size: 100% 100%;
   height: 400px;
-  margin: 3.2rem 2rem 0 2rem;
+  margin: 3.1rem 2rem 0 2rem;
 `;
+export const ImageHeader = styled.h1`
+  font-size: xxx-large;
+  width: 50%;
+  margin: auto;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+`;
+export const ImageParg = styled.p`
+  font-size: x-large;
+  width: 50%;
+  margin: auto;
+  margin-top: 2rem;
 
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+`;
 export const H1 = styled.h1`
   color: hsl(240, 75%, 10%);
   font-size: xxx-large;

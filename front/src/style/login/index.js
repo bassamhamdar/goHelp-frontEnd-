@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const Wrapper = styled.section`
   min-height: 100vh;
   background: white;
+  font-family: "Dosis", sans-serif;
 `;
 
 export const LoginForm = styled.form`

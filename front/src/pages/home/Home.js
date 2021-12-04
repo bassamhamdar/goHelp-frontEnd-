@@ -8,6 +8,8 @@ import {
   H1,
   H3,
   HeaderImage,
+  ImageHeader,
+  ImageParg,
   Organization,
   P,
   RegisterButton,
@@ -22,9 +24,11 @@ import { AboutUs } from "./AboutUs";
 export const Home = () => {
   return (
     <>
-      <HeaderImage></HeaderImage>
+      <HeaderImage>
+        <ImageHeader>Becasue they need your help</ImageHeader>
+        <ImageParg>do not let them down</ImageParg>
+      </HeaderImage>
       <AboutUs />
-      <H1>Here's how it works</H1>
       <Flex>
         <FlexItem>
           <Circle img={Profile}></Circle>

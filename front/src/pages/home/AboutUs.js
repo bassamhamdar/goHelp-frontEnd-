@@ -9,6 +9,8 @@ import {
   ReadMore,
 } from "../../style/aboutUs";
 import ourmission from "../../image/icons/our-mission-icon.png";
+import help from "../../image/icons/help-icon.png";
+import programs from "../../image/icons/programs-icon.png";
 export const AboutUs = () => {
   return (
     <AboutRow>
@@ -24,7 +26,7 @@ export const AboutUs = () => {
         <ReadMore href="#">Read more</ReadMore>
       </AboutCol>
       <AboutCol>
-        <Icon src={ourmission} />
+        <Icon src={help} />
         <H3>our mission</H3>
         <Details>
           <P>
@@ -35,7 +37,7 @@ export const AboutUs = () => {
         <ReadMore href="#">Read more</ReadMore>
       </AboutCol>
       <AboutCol>
-        <Icon src={ourmission} />
+        <Icon src={programs} />
         <H3>our mission</H3>
         <Details>
           <P>
