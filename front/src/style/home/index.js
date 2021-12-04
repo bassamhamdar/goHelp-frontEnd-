@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import Image2 from "../../image/homepage.jpg";
+import Image4 from "../../image/homepage4.jpg";
 
 /* ... */
 
 export const HeaderImage = styled.div`
-  background-image: url(${Image2});
-  background-position: center;
-  height: 280px;
+  background-image: url(${Image4});
+  background-size: 100% 100%;
+  object-fit: cover;
+  height: 400px;
   margin: 0 2rem 0 2rem;
 `;
 
@@ -52,7 +53,7 @@ export const Organization = styled.div`
 `;
 
 export const RegisterButton = styled.button`
-  background: linear-gradient(#073, #0fa);
+  background: #002129;
   width: 150px;
   height: 60px;
   border: none;
@@ -65,7 +66,7 @@ export const RegisterButton = styled.button`
   border-radius: 4px;
   cursor: pointer;
 `;
-export const FooterH1 = styled.h1`
+export const RegisterH1 = styled.h1`
   color: hsl(240, 75%, 10%);
   font-size: xxx-large;
   margin-left: 2rem;
@@ -76,12 +77,13 @@ export const FooterSection = styled.div`
   background-color: #002129;
   height: 300px;
   display: flex;
-  justify-content: ;
+  justify-content: space-around;
 `;
-export const Section = styled.section``;
+export const Section = styled.section`
+  text-align: center;
+`;
 export const FooterH3 = styled.h3`
   margin-top: 1rem;
-  text-alin: center;
   color: white;
 `;
 export const P = styled.p`

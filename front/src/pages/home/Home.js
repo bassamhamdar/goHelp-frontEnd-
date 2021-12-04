@@ -3,7 +3,6 @@ import {
   Circle,
   Flex,
   FlexItem,
-  FooterH1,
   FooterH3,
   FooterSection,
   H1,
@@ -12,16 +11,19 @@ import {
   Organization,
   P,
   RegisterButton,
+  RegisterH1,
   Section,
 } from "../../style/home";
 import Profile from "../../image/profile-icon.png";
 import Ngo from "../../image/ngo.jpg";
 import Request from "../../image/request.png";
+import { AboutUs } from "./AboutUs";
 
 export const Home = () => {
   return (
     <>
       <HeaderImage></HeaderImage>
+      <AboutUs />
       <H1>Here's how it works</H1>
       <Flex>
         <FlexItem>
@@ -38,7 +40,7 @@ export const Home = () => {
         </FlexItem>
       </Flex>
       <Organization>
-        <FooterH1>For organizations {"->"} </FooterH1>
+        <RegisterH1>For organizations {"->"} </RegisterH1>
         <RegisterButton>Register here</RegisterButton>
       </Organization>
       <FooterSection>
