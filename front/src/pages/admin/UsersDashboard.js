@@ -4,16 +4,16 @@ import { StyledTable } from "../../style/table";
 import { SiAdblock } from "react-icons/si";
 import { ImProfile } from "react-icons/im";
 import { useSelector, useDispatch } from "react-redux";
-import { FetchUsers } from "../../redux/actions/userActions";
+import { FetchUsers } from "../../redux/actions/admin/adminActions";
 export const UsersDashboard = () => {
-  const users = useSelector((state) => state.allusers.users);
+  const users = useSelector((state) => state.users.users);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(FetchUsers());
-  }, []);
+  }, [dispatch]);
   return (
     <>
-      {console.log("state", users)}
+      {console.log("users", users)}
       <TtilePage>users</TtilePage>;
       <StyledTable>
         <caption>Users in goHelp</caption>

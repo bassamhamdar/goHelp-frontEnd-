@@ -5,7 +5,6 @@ import {
   FlexItem,
   FooterH3,
   FooterSection,
-  H1,
   H3,
   HeaderImage,
   ImageHeader,

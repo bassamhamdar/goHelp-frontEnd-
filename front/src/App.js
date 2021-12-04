@@ -14,7 +14,7 @@ function App() {
   return (
     <Wrapper>
       {condition === "dashboard" ? <SideNav /> : null}
-      {condition === "dashboard" ? null : <Nav />}
+      {condition === "dashboard" || "admin" ? null : <Nav />}
 
       <Switch>
         <Route path="/" exact component={Home} />
