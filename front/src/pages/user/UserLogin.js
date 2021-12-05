@@ -6,14 +6,16 @@ import {
   Link,
   LoginInput,
   Error,
-} from "../style/login";
+} from "../../style/login";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { loginUser } from "../../redux/actions/user/userActions";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Login() {
   const schema = yup.object().shape({
-    username: yup.string().min(3).required(),
+    email: yup.string().min(3).required(),
     password: yup.string().required(),
   });
 
@@ -23,15 +25,17 @@ export default function Login() {
     formState: { errors },
     reset,
   } = useForm({ resolver: yupResolver(schema) });
+  const dispatch = useDispatch();
   const onSubmit = (data) => {
-    console.log(data);
+    dispatch(loginUser(data));
     reset();
   };
-
+  const user = useSelector((state) => state);
   return (
     <LoginForm onSubmit={handleSubmit(onSubmit)}>
-      <Title>Welcome Admin</Title>
-      <Input placeholder="Username" {...register("username")} />
+      {console.log("userrrr", user)}
+      <Title>Welcome User</Title>
+      <Input placeholder="Email" {...register("email")} />
       <Error>{errors.username?.message}</Error>
       <Input placeholder="Password" {...register("password")} type="password" />
       <Error>{errors.password?.message}</Error>

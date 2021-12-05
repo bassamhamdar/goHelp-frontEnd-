@@ -1,5 +1,5 @@
-import Login from "./components/Login";
-import UserLogin from "./components/UserLogin";
+import AdminLogin from "./components/AdminLogin";
+import UserLogin from "./pages/user/UserLogin";
 import { Wrapper } from "./style/login";
 import { SideNav } from "./components/SideNav";
 import { Dashboard } from "./pages/admin/Dashboard";
@@ -16,13 +16,13 @@ function App() {
     <Wrapper>
       {condition === "dashboard" ? <SideNav /> : null}
       {condition === "dashboard" || condition === "admin" ? null : <Nav />}
-      {console.log("cond", condition)}
+
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/user/register" component={UserRegister} />
         <Route path="/user/login" component={UserLogin} />
         <Route path="/user/profile" component={UserProfile} />
-        <Route path="/admin" component={Login} />
+        <Route path="/admin" component={AdminLogin} />
         <Dashboard />
       </Switch>
     </Wrapper>

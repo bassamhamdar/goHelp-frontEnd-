@@ -3,6 +3,7 @@ import { Button, Error, Input, RegisterForm } from "../../style/register";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { RegisterUser } from "../../redux/actions/user/userActions";
 
 export const UserRegister = () => {
   const schema = yup.object().shape({
@@ -15,7 +16,8 @@ export const UserRegister = () => {
         /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
         "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and one special case Character"
       ),
-    IDnumber: yup.string().min(12).required(),
+    idCard: yup.string().min(12).required(),
+    phone: yup.string().min(6).required(),
     address: yup.string().required(),
     email: yup.string().email("Invalid email format").required(),
   });
@@ -28,6 +30,7 @@ export const UserRegister = () => {
   } = useForm({ resolver: yupResolver(schema) });
   const onSubmit = (data) => {
     console.log(data);
+    RegisterUser(data);
     reset();
   };
   return (
@@ -40,8 +43,10 @@ export const UserRegister = () => {
       <Error>{errors.email?.message}</Error>
       <Input placeholder="Password" type="password" {...register("password")} />
       <Error>{errors.password?.message}</Error>
-      <Input placeholder="ID number" {...register("IDnumber")} />
+      <Input placeholder="ID number" {...register("idCard")} />
       <Error>{errors.IDnumber?.message}</Error>
+      <Input placeholder="Phone" {...register("phone")} />
+      <Error>{errors.phone?.message}</Error>
       <Input placeholder="address" {...register("address")} />
       <Error>{errors.address?.message}</Error>
       <Button login type="submit" value="Submit" />

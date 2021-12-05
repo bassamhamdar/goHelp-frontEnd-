@@ -3,15 +3,14 @@ import { useHistory } from "react-router";
 import { NavMenu, NavSection, NavSpan } from "../style/nav";
 export const Nav = () => {
   const history = useHistory();
-  const navigateToLogin = () => history.push("/user/login");
-  const navigateToSignUp = () => history.push();
+  const navigate = (path) => history.push(path);
   return (
     <NavMenu>
       <NavSection>
-        <NavSpan onClick={() => navigateToLogin()}>Login</NavSpan>
+        <NavSpan onClick={() => navigate("/user/login")}>Login</NavSpan>
       </NavSection>
       <NavSection>
-        <NavSpan>Sign up</NavSpan>
+        <NavSpan onClick={() => navigate("/user/register")}>Sign up</NavSpan>
       </NavSection>
     </NavMenu>
   );
