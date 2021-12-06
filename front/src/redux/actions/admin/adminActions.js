@@ -1,9 +1,8 @@
 import { ActionTypes } from "../../constants/action-types";
-import fetchOrg from "../../../api/admin/fetchOrgApi";
-import fetchUser from "../../../api/admin/fetchUserApi";
+import adminApi from "../../../api/admin/adminApi";
 
 export const FetchOrgs = () => async (dispatch) => {
-  const response = await fetchOrg.get("/org");
+  const response = await adminApi.get("/org");
   const data = response.data;
   console.log("data", data);
   dispatch({
@@ -13,7 +12,7 @@ export const FetchOrgs = () => async (dispatch) => {
 };
 
 export const FetchUsers = () => async (dispatch) => {
-  const response = await fetchUser.get("/all");
+  const response = await adminApi.get("/user");
   const data = response.data;
   console.log("data", data);
   dispatch({
