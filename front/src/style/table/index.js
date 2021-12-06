@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledTable = styled.table`
-  margin-top: 2rem;
+  margin-top: 4rem;
   margin-bottom: 4rem;
   width: 50%;
   margin-left: auto;
@@ -10,8 +10,8 @@ export const StyledTable = styled.table`
   caption-side: top;
   border: none;
   border-collapse: collapse;
-  // border-collapse: separate;
-  border-spacing: 5px 10px;
+  border-collapse: separate;
+  border-spacing: 5px 5px;
 
   caption-side: bottom;
   empty-cell: show | hide;
@@ -33,19 +33,39 @@ export const StyledTable = styled.table`
   }
 
   tbody tr {
-    :nth-of-type(odd) {
-      background-color: #efefef;
-    }
-    :hover {
-      background-color: #3d9970;
-    }
+    height: 4rem;
+    background: -webkit-linear-gradient(left, #25c481, #00857c);
+    background: linear-gradient(to right, #25c481, #00857c);
+    color: white;
+    font-family: "Roboto", sans-serif;
   }
   thead > tr {
-    background-color: ${(props) => (props.org ? "#3d9970" : "#c2c2c2")};
+    background-color: rgb(0, 133, 124, 0.7);
+    background-color: ${(props) =>
+      props.org ? "#3d9970" : "rgb(0, 133, 124, 0.7)"};
+  }
+  thead {
+    height: 3rem;
+    color: #fff;
   }
   caption {
     font-size: 0.9em;
     padding: 5px;
     font-weight: bold;
   }
+`;
+export const ScrollTbody = styled.tbody`
+  // ::-webkit-scrollbar {
+  //   width: 6px;
+  // }
+  // ::-webkit-scrollbar-track {
+  //   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  // }
+  // ::-webkit-scrollbar-thumb {
+  //   -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  // }
+  display: block;
+  overflow: scroll;
+  margin-top: 5rem;
+  height: 100vh;
 `;

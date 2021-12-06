@@ -8,6 +8,7 @@ import { UserProfile } from "./pages/user/UserProfile";
 import { Home } from "./pages/home/Home";
 import { Nav } from "./components/Nav";
 import { UserRegister } from "./pages/user/UserRegister";
+import { OrgTable } from "./pages/user/OrgTable";
 function App() {
   const history = useHistory();
   const path = history.location.pathname;
@@ -21,6 +22,8 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/user/register" component={UserRegister} />
         <Route path="/user/login" component={UserLogin} />
+        <Route path="/user/org" component={OrgTable} />
+
         <Route path="/user/profile" component={UserProfile} />
         <Route path="/admin" component={AdminLogin} />
         <Dashboard />
