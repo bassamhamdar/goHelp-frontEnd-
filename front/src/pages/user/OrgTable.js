@@ -1,32 +1,35 @@
-import React from "react";
-import { ScrollTbody, StyledTable } from "../../style/table";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { FetchOrgs } from "../../redux/actions/user/userActions";
+import { StyledTable } from "../../style/table";
+import { ImProfile } from "react-icons/im";
 export const OrgTable = () => {
+  const dispatch = useDispatch();
+  const org = useSelector((state) => state.orgs.org);
+  useEffect(() => dispatch(FetchOrgs()), [dispatch]);
   return (
     <StyledTable org>
+      {console.log("orgsss", org)}
       <caption>Organizations in goHelp</caption>
-      <colgroup>
-        <col />
-        <col />
-        <col />
-      </colgroup>
       <thead>
         <tr>
           <th>Name</th>
           <th>Activity</th>
-          <th>Email</th>
+          <th>City</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td>org 1</td>
-          <td>org activity name</td>
-          <td>email@gmail.com</td>
-        </tr>
-        <tr>
-          <td>org 2</td>
-          <td>org 2 activity name</td>
-          <td>email@gmail.com</td>
-        </tr>
+        {org.map((data, i) => (
+          <tr key={i}>
+            <td>{data.name}</td>
+            <td>{data.activity.name}</td>
+            <td>{data.address[0].city}</td>
+            <td>
+              <ImProfile style={{ padding: "10px" }} />
+            </td>
+          </tr>
+        ))}
       </tbody>
     </StyledTable>
   );

@@ -42,16 +42,6 @@ export const UsersDashboard = () => {
               </td>
             </tr>
           ))}
-
-          <tr>
-            <td>user 2</td>
-            <td>user 2 family name</td>
-            <td>email@gmail.com</td>
-            <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
         </tbody>
       </StyledTable>
     </>
