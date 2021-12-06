@@ -8,29 +8,32 @@ export const OrgTable = () => {
   const org = useSelector((state) => state.orgs.org);
   useEffect(() => dispatch(FetchOrgs()), [dispatch]);
   return (
-    <StyledTable org>
-      {console.log("orgsss", org)}
-      <caption>Organizations in goHelp</caption>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Activity</th>
-          <th>City</th>
-          <th>Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        {org.map((data, i) => (
-          <tr key={i}>
-            <td>{data.name}</td>
-            <td>{data.activity.name}</td>
-            <td>{data.address[0].city}</td>
-            <td>
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
+    <>
+      <input type="search" style={{ marginTop: "4rem" }} />
+      <StyledTable org>
+        {console.log("orgsss", org)}
+        <caption>Organizations in goHelp</caption>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Activity</th>
+            <th>City</th>
+            <th>Action</th>
           </tr>
-        ))}
-      </tbody>
-    </StyledTable>
+        </thead>
+        <tbody>
+          {org.map((data, i) => (
+            <tr key={i}>
+              <td>{data.name}</td>
+              <td>{data.activity.name}</td>
+              <td>{data.address[0].city}</td>
+              <td>
+                <ImProfile style={{ padding: "10px" }} />
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </StyledTable>
+    </>
   );
 };
