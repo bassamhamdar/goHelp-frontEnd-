@@ -7,12 +7,16 @@ export const RegisterUser = async (data) => {
 };
 
 export const loginUser = (cred) => async (dispatch) => {
-  console.log("hhah");
   const response = await userApi.post("/login", cred);
   const data = response.data;
-  console.log("login dddd", data);
-  dispatch({
-    type: ActionTypes.SET_USER,
-    payload: data,
-  });
+  let user = {
+    token: data.access_token,
+    id: data.data[0].id,
+    firstName: data.data[0].firstname,
+    lastname: data.data[0].lastname,
+  };
+  localStorage.setItem("user", JSON.stringify(user));
+  let parse = JSON.parse(localStorage.getItem("user"));
+
+  console.log(parse);
 };
