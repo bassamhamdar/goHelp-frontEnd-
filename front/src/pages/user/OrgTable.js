@@ -22,16 +22,17 @@ export const OrgTable = () => {
           </tr>
         </thead>
         <tbody>
-          {org.map((data, i) => (
-            <tr key={i}>
-              <td>{data.name}</td>
-              <td>{data.activity.name}</td>
-              <td>{data.address[0].city}</td>
-              <td>
-                <ImProfile style={{ padding: "10px" }} />
-              </td>
-            </tr>
-          ))}
+          {org &&
+            org.map((data, i) => (
+              <tr key={i}>
+                <td>{data.name}</td>
+                <td>{data.activity.name}</td>
+                <td>{data.address[0].city}</td>
+                <td>
+                  <ImProfile style={{ padding: "10px" }} />
+                </td>
+              </tr>
+            ))}
         </tbody>
       </StyledTable>
     </>
