@@ -30,3 +30,13 @@ export const FetchOrgs = () => async (dispatch) => {
     payload: data.data,
   });
 };
+
+export const FetchOneOrg = (id) => async (dispatch) => {
+  const response = await userApi.get(`/org/profile/${id}`);
+  const data = response.data;
+  console.log("data", data);
+  dispatch({
+    type: ActionTypes.FETCH_ONE_ORG,
+    payload: data.data,
+  });
+};
