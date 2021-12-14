@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchOrgs, SearchOrgs } from "../../redux/actions/user/userActions";
 import { StyledTable } from "../../style/table";
@@ -12,13 +12,26 @@ export const OrgTable = () => {
   useEffect(() => dispatch(FetchOrgs()), [dispatch]);
   return (
     <>
-      <input
-        type="text"
-        style={{ marginTop: "4rem" }}
-        onChange={(event) => {
-          handleSearch(event.target.value);
-        }}
-      />
+      <div>
+        <input
+          type="text"
+          placeholder=" Search ..."
+          style={{
+            display: "block",
+            width: "20rem",
+            margin: "auto",
+            marginTop: "5rem",
+            border: "none",
+            height: "2rem",
+            borderRadius: "6px",
+            boxShadow: "1px 1px 1px 1px rgba(128, 128, 128, 0.295)",
+          }}
+          onChange={(event) => {
+            handleSearch(event.target.value);
+          }}
+        />
+      </div>
+
       <StyledTable org>
         <caption>Organizations in goHelp</caption>
         <thead>
