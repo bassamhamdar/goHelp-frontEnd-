@@ -1,17 +1,25 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchOrgs } from "../../redux/actions/user/userActions";
+import { FetchOrgs, SearchOrgs } from "../../redux/actions/user/userActions";
 import { StyledTable } from "../../style/table";
 import { ImProfile } from "react-icons/im";
 export const OrgTable = () => {
   const dispatch = useDispatch();
   const org = useSelector((state) => state.orgs.org);
+  const handleSearch = (data) => {
+    dispatch(SearchOrgs(data));
+  };
   useEffect(() => dispatch(FetchOrgs()), [dispatch]);
   return (
     <>
-      <input type="search" style={{ marginTop: "4rem" }} />
+      <input
+        type="text"
+        style={{ marginTop: "4rem" }}
+        onChange={(event) => {
+          handleSearch(event.target.value);
+        }}
+      />
       <StyledTable org>
-        {console.log("orgsss", org)}
         <caption>Organizations in goHelp</caption>
         <thead>
           <tr>

@@ -7,7 +7,17 @@ export const OrgReducer = (state = intialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.FETCH_ORGS:
       return { ...state, org: payload };
-
+    case ActionTypes.SEARCH_ORGS: {
+      const lowerCased = payload.toLowerCase();
+      const searched = state.org.filter((item) =>
+        item.name.toLowerCase().includes(lowerCased)
+      );
+      console.log("search in reducer", searched);
+      return {
+        ...state,
+        org: searched,
+      };
+    }
     default:
       return state;
   }

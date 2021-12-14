@@ -30,3 +30,10 @@ export const FetchOrgs = () => async (dispatch) => {
     payload: data.data,
   });
 };
+
+export const SearchOrgs = (data) => async (dispatch) => {
+  dispatch({
+    type: ActionTypes.SEARCH_ORGS,
+    payload: data,
+  });
+};
