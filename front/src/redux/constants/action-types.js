@@ -4,4 +4,5 @@ export const ActionTypes = {
   FETCH_USERS: "FETCH_USERS",
   FETCH_ORGS: "FETCH_ORGS",
   SEARCH_ORGS: "SEARCH_ORGS",
+  FETCH_ONE_ORG: "FETCH_ONE_ORG",
 };

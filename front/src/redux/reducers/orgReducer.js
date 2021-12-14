@@ -7,6 +7,7 @@ export const OrgReducer = (state = intialState, { type, payload }) => {
   switch (type) {
     case ActionTypes.FETCH_ORGS:
       return { ...state, org: payload };
+
     case ActionTypes.SEARCH_ORGS: {
       const lowerCased = payload.toLowerCase();
       const searched = state.org.filter((item) =>
@@ -18,6 +19,10 @@ export const OrgReducer = (state = intialState, { type, payload }) => {
         org: searched,
       };
     }
+
+    case ActionTypes.FETCH_ONE_ORG:
+      return { org: payload };
+
     default:
       return state;
   }
