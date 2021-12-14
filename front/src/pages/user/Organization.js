@@ -1,4 +1,10 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
+import { Message } from "../../components/Message";
+import { FetchOneOrg } from "../../redux/actions/user/userActions";
+import { Button } from "../../style/login";
 import {
   OrgProfile,
   Photo,
@@ -11,9 +17,17 @@ import {
 } from "../../style/OrgProfile";
 
 export const Organization = () => {
+  const param = useParams();
+  const dispatch = useDispatch();
+  const [visible, setVisible] = useState(false);
+  const org = useSelector((state) => state.org);
+  useEffect(() => dispatch(FetchOneOrg(param.id)));
   return (
     <OrgProfile>
+      {console.log("org profile", org)}
       <Photo></Photo>
+      <Button onClick={() => setVisible(true)}>Send request</Button>
+      {visible ? <Message setVisible={setVisible} /> : null}
       <H1>ORG NAME</H1>
       <Flex>
         <Left>

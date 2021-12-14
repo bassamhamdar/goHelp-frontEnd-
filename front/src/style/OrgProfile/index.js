@@ -30,4 +30,5 @@ export const P = styled.p``;
 export const H1 = styled.h1`
   transform: uppercase;
   padding-top: 0.5rem;
+  margin-left: 1rem;
 `;

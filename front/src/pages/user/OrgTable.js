@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { FetchOrgs, SearchOrgs } from "../../redux/actions/user/userActions";
 import { StyledTable } from "../../style/table";
 import { ImProfile } from "react-icons/im";
+import { useHistory } from "react-router-dom";
 export const OrgTable = () => {
   const dispatch = useDispatch();
   const org = useSelector((state) => state.orgs.org);
   const handleSearch = (data) => {
     dispatch(SearchOrgs(data));
   };
+  const history = useHistory();
+  const navigate = (id) => history.push(`/user/org/profile/${id}`);
   useEffect(() => dispatch(FetchOrgs()), [dispatch]);
   return (
     <>
@@ -50,7 +53,10 @@ export const OrgTable = () => {
                 <td>{data.activity.name}</td>
                 <td>{data.address[0].city}</td>
                 <td>
-                  <ImProfile style={{ padding: "10px" }} />
+                  <ImProfile
+                    style={{ padding: "10px", cursor: "pointer" }}
+                    onClick={() => navigate(data.id)}
+                  />
                 </td>
               </tr>
             ))}

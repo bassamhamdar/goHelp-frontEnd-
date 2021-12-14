@@ -23,7 +23,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/user/register" component={UserRegister} />
         <Route path="/user/login" component={UserLogin} />
-        <Route path="/user/org/profile" exact component={Organization} />
+        <Route path="/user/org/profile/:id" exact component={Organization} />
         <Route path="/user/org" component={OrgTable} />
         <Route path="/user/profile" component={UserProfile} />
         <Route path="/admin" component={AdminLogin} />

@@ -21,7 +21,7 @@ export const OrgReducer = (state = intialState, { type, payload }) => {
     }
 
     case ActionTypes.FETCH_ONE_ORG:
-      return { org: payload };
+      return { ...state, org: payload };
 
     default:
       return state;

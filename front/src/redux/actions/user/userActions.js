@@ -47,3 +47,8 @@ export const FetchOneOrg = (id) => async (dispatch) => {
     payload: data.data,
   });
 };
+
+export const SendReq = async (data) => {
+  const response = await userApi.post(`/request`, data);
+  console.log("req", response.data);
+};
