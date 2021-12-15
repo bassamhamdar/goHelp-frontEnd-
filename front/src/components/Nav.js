@@ -6,23 +6,39 @@ export const Nav = () => {
   const navigate = (path) => history.push(path);
   return (
     <NavMenu>
-      <NavSection style={{ width: "50%" }}>
+      <NavSection
+        style={{
+          width: "33.33%",
+          display: "flex",
+          justifyContent: "space-around",
+          fontWeight: "bold",
+          fontSize: "25px",
+        }}
+      >
         <NavSpan onClick={() => navigate("/")}>goHelp</NavSpan>
-      </NavSection>
-      <NavSection style={{ width: "40%" }}>
-        <NavSpan>Login</NavSpan>
       </NavSection>
       <NavSection
         style={{
-          width: "10%",
+          width: "33.33%",
           display: "flex",
-          justifyContent: "flex-end",
+          justifyContent: "space-around",
+        }}
+      >
+        <NavSpan>About</NavSpan>
+        <NavSpan>FAQ</NavSpan>
+        <NavSpan>Contact us</NavSpan>
+      </NavSection>
+      <NavSection
+        style={{
+          width: "33.33%",
+          display: "flex",
+          justifyContent: "space-evenly",
           gap: "1rem",
           marginRight: "1rem",
         }}
       >
-        <NavSpan onClick={() => navigate("/user/login")}>Login</NavSpan>
         <NavSpan onClick={() => navigate("/user/register")}>Sign up</NavSpan>
+        <NavSpan onClick={() => navigate("/user/login")}>Login</NavSpan>
       </NavSection>
     </NavMenu>
   );
