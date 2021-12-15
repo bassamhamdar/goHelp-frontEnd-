@@ -26,8 +26,10 @@ export const Organization = () => {
     <OrgProfile>
       {console.log("org profile", org)}
       <Photo></Photo>
-      <Button onClick={() => setVisible(true)}>Send request</Button>
-      {visible ? <Message setVisible={setVisible} /> : null}
+      <Button onClick={() => setVisible(true)} style={{ border: "none" }}>
+        Send request
+      </Button>
+      {visible ? <Message setVisible={setVisible} org_id={param.id} /> : null}
       <H1>ORG NAME</H1>
       <Flex>
         <Left>

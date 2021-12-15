@@ -1,16 +1,65 @@
 import React from "react";
 import { SendReq } from "../redux/actions/user/userActions";
-import { Button, Input, LoginForm } from "../style/login";
+import { Form, Input, Button, TextArea, Error, Select } from "../style/message";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+export const Message = ({ setVisible, org_id }) => {
+  const schema = yup.object().shape({
+    title: yup.string().required(),
+    description: yup.string().required(),
+  });
 
-export const Message = ({ setVisible }) => {
-  SendReq();
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset,
+  } = useForm({ resolver: yupResolver(schema) });
+  const onSubmit = (data) => {
+    const message = {
+      user_id: data.user_id,
+      org_id: data.org_id,
+      isDonation: data.isDonation,
+      title: data.title,
+      description: data.description,
+      image: data.image[0].name,
+    };
+    SendReq(message);
+  };
+
   return (
-    <LoginForm style={{ backgroundColor: "white" }}>
-      <Button onClick={() => setVisible(false)}>x</Button>
-      <Input placeholder="title" />
-      <Input placeholder="description" />
-      <Input placeholder="image" type="file" />
-      <Button>Send</Button>
-    </LoginForm>
+    <Form
+      style={{ backgroundColor: "white" }}
+      onSubmit={handleSubmit(onSubmit)}
+    >
+      {console.log("org id", org_id)}
+      <Error>{errors.title?.message}</Error>
+      <Error>{errors.description?.message}</Error>
+
+      <Button
+        onClick={() => setVisible(false)}
+        style={{ float: "right", marginRight: "5%" }}
+      >
+        x
+      </Button>
+      <Select {...register("isDonation")}>
+        <option value="">Select...</option>
+        <option value="0">help request</option>
+        <option value="1">donation request</option>
+      </Select>
+      <Input type="hidden" value="1" {...register("user_id")} />
+      <Input type="hidden" value={org_id} {...register("org_id")} />
+
+      <Input placeholder="title" {...register("title")} />
+      <TextArea placeholder="description" {...register("description")} />
+      <Input placeholder="image" type="file" {...register("image")} />
+      <Button style={{ width: "90%" }} type="submit">
+        Send
+      </Button>
+      <ToastContainer />
+    </Form>
   );
 };
