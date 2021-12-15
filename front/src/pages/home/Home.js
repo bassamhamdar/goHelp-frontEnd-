@@ -20,8 +20,11 @@ import Profile from "../../image/profile.webp";
 import Request from "../../image/help.webp";
 import Ngo from "../../image/ngo.jpg";
 import { AboutUs } from "./AboutUs";
+import { useHistory } from "react-router-dom";
 
 export const Home = () => {
+  const navigate = useHistory();
+  const handleClick = () => navigate.push("/org/register");
   return (
     <>
       <HeaderImage>
@@ -46,7 +49,9 @@ export const Home = () => {
       </Flex>
       <Organization>
         <RegisterH1>For organizations {"->"} </RegisterH1>
-        <RegisterButton>Register here</RegisterButton>
+        <RegisterButton onClick={() => handleClick()}>
+          Register here
+        </RegisterButton>
       </Organization>
       <FooterSection>
         <Section>

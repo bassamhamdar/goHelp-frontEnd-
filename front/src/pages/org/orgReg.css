@@ -1,0 +1,120 @@
+.orgReg__form {
+  margin: 5rem;
+  background-color: #00857c;
+  border-radius: 8px;
+  padding: 1rem;
+}
+.orgReg__form > h1 {
+  margin: auto;
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 40px;
+}
+.orgReg__flex {
+  display: flex;
+  justify-content: space-between;
+}
+.flex1,
+.flex2 {
+  width: 40%;
+}
+
+.orReg__input {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 1rem;
+  outline: 0;
+  padding: 15px;
+  width: 80%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+}
+
+.orgReg__textarea {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 1rem;
+  outline: 0;
+  padding: 15px;
+  width: 50%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 30px;
+}
+.orgReg__select {
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  font-size: 16px;
+  height: auto;
+  margin: 1rem;
+  outline: 0;
+  padding: 15px;
+  width: 30%;
+  background-color: #e8eeef;
+  color: #8a97a0;
+  border: none;
+  box-shadow: 0 1px 0 rgba(0, 0, 0, 0.03) inset;
+  margin-bottom: 1rem;
+}
+
+select {
+  padding: 6px;
+  height: 32px;
+  border-radius: 2px;
+}
+
+.orgReg__button {
+  padding: 19px 39px 18px 39px;
+  color: #fff;
+  background-color: #4bc970;
+  font-size: 18px;
+  text-align: center;
+  font-style: normal;
+  border-radius: 5px;
+  width: 10rem;
+  border: 1px solid #3ac162;
+  border-width: 1px 1px 3px;
+  box-shadow: 0 -1px 0 rgba(255, 255, 255, 0.1) inset;
+  margin-bottom: 10px;
+}
+
+fieldset {
+  margin-bottom: 2rem;
+  border: none;
+}
+
+legend {
+  font-size: 1.4em;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+label.light {
+  font-weight: 300;
+  display: inline;
+}
+
+.number {
+  background-color: #5fcf80;
+  color: #fff;
+  height: 30px;
+  width: 30px;
+  display: inline-block;
+  font-size: 0.8em;
+  margin-right: 4px;
+  line-height: 30px;
+  text-align: center;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+}
