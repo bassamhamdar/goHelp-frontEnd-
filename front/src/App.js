@@ -11,6 +11,8 @@ import { UserRegister } from "./pages/user/UserRegister";
 import { OrgTable } from "./pages/user/OrgTable";
 import { Organization } from "./pages/user/Organization";
 import { OrgRegister } from "./pages/org/OrgRegister";
+import { Posts } from "./pages/user/Posts";
+
 function App() {
   const history = useHistory();
   const path = history.location.pathname;
@@ -27,8 +29,8 @@ function App() {
         <Route path="/user/org/profile/:id" exact component={Organization} />
         <Route path="/user/org" component={OrgTable} />
         <Route path="/user/profile" component={UserProfile} />
+        <Route path="/user/posts" component={Posts} />
         <Route path="/org/register" component={OrgRegister} />
-
         <Route path="/admin" component={AdminLogin} />
         <Dashboard />
       </Switch>
