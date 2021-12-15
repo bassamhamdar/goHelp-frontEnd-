@@ -10,7 +10,7 @@ export const NavMenu = styled.div`
   justify-content: flex-end;
 `;
 export const NavSection = styled.div`
-  width: 8%;
+  width: 33.33%;
 `;
 
 export const NavSpan = styled.p`

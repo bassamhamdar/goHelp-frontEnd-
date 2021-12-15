@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const RegisterForm = styled.form`
   margin-top: 5%;
   margin-left: 5%;
+  width: 50%;
 `;
 export const Input = styled.input`
   border-top-style: hidden;
