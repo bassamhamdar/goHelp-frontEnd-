@@ -4,12 +4,14 @@ import { Form, Input, Button, TextArea, Error, Select } from "../style/message";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { ToastContainer } from "react-toastify";
+
 import "react-toastify/dist/ReactToastify.css";
 export const Message = ({ setVisible, org_id }) => {
   const schema = yup.object().shape({
     title: yup.string().required(),
     description: yup.string().required(),
+    isDonation: yup.string().required(),
+    image: yup.mixed().required(),
   });
 
   const {
@@ -18,6 +20,7 @@ export const Message = ({ setVisible, org_id }) => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
   const onSubmit = (data) => {
+    console.log("data", data);
     const message = {
       user_id: data.user_id,
       org_id: data.org_id,
@@ -37,14 +40,14 @@ export const Message = ({ setVisible, org_id }) => {
       {console.log("org id", org_id)}
       <Error>{errors.title?.message}</Error>
       <Error>{errors.description?.message}</Error>
-
+      <Error>{errors.image?.message}</Error>
       <Button
         onClick={() => setVisible(false)}
         style={{ float: "right", marginRight: "5%" }}
       >
         x
       </Button>
-      <Select {...register("isDonation")}>
+      <Select {...register("isDonation")} style={{ border: "none" }}>
         <option value="">Select...</option>
         <option value="0">help request</option>
         <option value="1">donation request</option>
@@ -58,7 +61,6 @@ export const Message = ({ setVisible, org_id }) => {
       <Button style={{ width: "90%" }} type="submit">
         Send
       </Button>
-      <ToastContainer />
     </Form>
   );
 };

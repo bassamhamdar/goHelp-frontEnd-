@@ -1,0 +1,47 @@
+#home {
+  background: url("../../image/home-bg.jpg") no-repeat;
+  background-size: cover;
+  background-position: center;
+  min-height: 30%;
+  padding-top: 220px;
+  padding-bottom: 100px;
+}
+
+#service {
+  padding-top: 20px;
+  padding-bottom: 80px;
+  color: #353c4e;
+}
+#service h2 {
+  border-left: 2px solid #00857c;
+  display: inline-block;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  margin: 1rem;
+}
+
+.row {
+  display: flex;
+}
+
+#about {
+  padding-top: 60px;
+  padding-bottom: 80px;
+  color: #353c4e;
+}
+#about h2 {
+  border-right: 2px solid #00857c;
+  display: inline-block;
+  padding: 10px 20px 10px 10px;
+}
+#about .col-md-12 {
+  text-align: center;
+  padding-bottom: 60px;
+}
+#about img {
+  border: 1px solid #666;
+  padding: 10px;
+}
+#about h4 {
+  padding-bottom: 10px;
+}

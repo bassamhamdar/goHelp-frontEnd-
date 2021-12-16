@@ -20,7 +20,7 @@ export const Input = styled.input`
   margin: 0.7rem;
 `;
 export const LoginInput = styled.input`
-  background: ${(props) => (props.login ? "#39CCCC" : "#3D9970")};
+  background: ${(props) => (props.login ? "#00857c" : "#3D9970")};
   color: white;
   font-size: 1em;
   margin: 1em;
@@ -31,7 +31,7 @@ export const LoginInput = styled.input`
   cursor: pointer;
 `;
 export const Button = styled.button`
-  background: ${(props) => (props.login ? "#39CCCC" : "#3D9970")};
+  background: ${(props) => (props.login ? "#00857c" : "#3D9970")};
 
   color: white;
   font-size: 1em;

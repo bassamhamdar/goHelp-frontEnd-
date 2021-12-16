@@ -12,6 +12,7 @@ import { OrgTable } from "./pages/user/OrgTable";
 import { Organization } from "./pages/user/Organization";
 import { OrgRegister } from "./pages/org/OrgRegister";
 import { Posts } from "./pages/user/Posts";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   const history = useHistory();
@@ -34,6 +35,7 @@ function App() {
         <Route path="/admin" component={AdminLogin} />
         <Dashboard />
       </Switch>
+      <ToastContainer />
     </Wrapper>
   );
 }

@@ -4,6 +4,7 @@ import { FetchOrgs, SearchOrgs } from "../../redux/actions/user/userActions";
 import { StyledTable } from "../../style/table";
 import { ImProfile } from "react-icons/im";
 import { useHistory } from "react-router-dom";
+import { H1 } from "../../style/home";
 export const OrgTable = () => {
   const dispatch = useDispatch();
   const org = useSelector((state) => state.orgs.org);
@@ -16,6 +17,16 @@ export const OrgTable = () => {
   return (
     <>
       <div>
+        <h1
+          style={{
+            marginTop: "5rem",
+            textAlign: "center",
+            color: "#353c4e",
+          }}
+        >
+          Search for registered organizations
+        </h1>
+
         <input
           type="text"
           placeholder=" Search ..."
@@ -36,7 +47,7 @@ export const OrgTable = () => {
       </div>
 
       <StyledTable org>
-        <caption>Organizations in goHelp</caption>
+        <caption style={{ color: "#353c4e" }}>Organizations in goHelp</caption>
         <thead>
           <tr>
             <th>Name</th>
@@ -46,7 +57,7 @@ export const OrgTable = () => {
           </tr>
         </thead>
         <tbody>
-          {org &&
+          {org.length > 0 &&
             org.map((data, i) => (
               <tr key={i}>
                 <td>{data.name}</td>

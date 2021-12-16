@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import image from "../../image/Go_Help.png";
 
 export const NavMenu = styled.div`
   height: 50px;
@@ -18,4 +19,11 @@ export const NavSpan = styled.p`
   color: white;
   font-family: system-ui;
   margin-top: 15px;
+`;
+export const Logo = styled.div`
+  background-image: url(${image});
+  height: 50px;
+  width: 104px;
+  background-size: 100% 100%;
+  cursor: pointer;
 `;

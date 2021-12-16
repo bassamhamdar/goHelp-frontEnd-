@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router";
-import { NavMenu, NavSection, NavSpan } from "../style/nav";
+import { Logo, NavMenu, NavSection, NavSpan } from "../style/nav";
 export const Nav = () => {
   const history = useHistory();
   const navigate = (path) => history.push(path);
@@ -15,7 +15,7 @@ export const Nav = () => {
           fontSize: "25px",
         }}
       >
-        <NavSpan onClick={() => navigate("/")}>goHelp</NavSpan>
+        <Logo onClick={() => navigate("/")}></Logo>
       </NavSection>
       <NavSection
         style={{

@@ -1,6 +1,39 @@
 .alice-carousel {
   margin-top: 3rem;
+  margin-bottom: 2rem;
 }
 .alice-carousel__wrapper {
   height: 400px !important;
+}
+
+.post-title {
+  color: grey;
+  margin: 0 auto;
+}
+.post-list {
+  padding: 0;
+  width: 80%;
+  height: 100%;
+}
+.post-list .post {
+  padding: 10px;
+  box-shadow: 0 1px rgba (0, 0, 0, 0.3);
+  border-radius: 5px;
+  color: grey;
+  background-color: white;
+  border: none;
+  text-align: justify;
+  margin-bottom: 1rem;
+  margin-left: 10px;
+  display: flex;
+}
+.donate__btn {
+  background: #3d9970;
+  color: white;
+  font-size: 1em;
+  margin: 1em;
+  padding: 0.25em 1em;
+  border-radius: 3px;
+  cursor: pointer;
+  border: none;
 }

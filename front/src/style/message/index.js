@@ -24,7 +24,7 @@ export const TextArea = styled.textarea`
   margin: 0.7rem;
 `;
 export const Button = styled.button`
-  background: ${(props) => (props.login ? "#39CCCC" : "#3D9970")};
+  background: #00857c;
   color: white;
   font-size: 1em;
   margin: 1em;

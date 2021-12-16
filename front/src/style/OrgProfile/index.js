@@ -2,6 +2,9 @@ import styled from "styled-components";
 import Image from "../../image/org.jpg";
 export const OrgProfile = styled.div`
   margin-top: 3rem;
+  background: -webkit-linear-gradient(left, #25c481, #00857c);
+  background: linear-gradient(to right, #25c481, #00857c);
+  color: #fff;
 `;
 
 export const Photo = styled.div`
@@ -14,7 +17,7 @@ export const Flex = styled.div`
 `;
 export const Left = styled.div`
   width: 70%;
-  height: 750px;
+  height: 100%;
   padding: 1rem;
 `;
 export const Right = styled.div`

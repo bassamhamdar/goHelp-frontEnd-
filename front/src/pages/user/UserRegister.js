@@ -34,27 +34,29 @@ export const UserRegister = () => {
     reset();
   };
   return (
-    <>
+    <div className="signupUser">
+      <h1
+        style={{
+          marginTop: "4rem",
+          color: "#353c4e",
+          textAlign: "center",
+          marginBottom: "2rem",
+        }}
+      >
+        Welcome to goHelp
+      </h1>
       <div
         className="greeting"
         style={{
           float: "right",
-          width: "50%",
+          width: "60%",
           textAlign: "center",
           marginTop: "2rem",
-          backgroundImage: ` linear-gradient(
-            rgba(37, 41, 88, 0.7),
-            rgba(0, 133, 124, 0.7)
-          ),url(${Background})`,
-          backgroundPosition: "center",
-          backgroundRepeat: "no-repeat",
-          backgroundSize: "100%",
-          color: "white",
+          color: "#353c4e",
           margin: "1rem",
           minHeight: "400px",
         }}
       >
-        <h1 style={{ marginBottom: "2rem" }}>Welcome to goHelp</h1>
         <h3>Our services is completely free</h3>
         <br />
         <h3>we are here to help you</h3>
@@ -87,6 +89,6 @@ export const UserRegister = () => {
         <Error>{errors.address?.message}</Error>
         <Button login type="submit" value="Submit" />
       </RegisterForm>
-    </>
+    </div>
   );
 };
