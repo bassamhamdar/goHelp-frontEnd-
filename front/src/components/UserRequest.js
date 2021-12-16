@@ -1,8 +1,19 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 import helpImg from "../image/concor.jpg";
+import { fetchDonReq, fetchHelpReq } from "../redux/actions/org/orgActions";
 export const UserRequest = () => {
+  const helpReq = useSelector((state) => state.req);
+  const donReq = useSelector((state) => state.req);
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchHelpReq(1));
+    dispatch(fetchDonReq(1));
+  }, [dispatch]);
   return (
     <div className="Donations" style={{ margin: "0 5rem 5rem" }}>
+      {console.log("Req", donReq)}
       <div id="about">
         <div className="container">
           <div className="col-md-12 col-sm-12">
