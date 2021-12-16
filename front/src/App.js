@@ -13,6 +13,7 @@ import { Organization } from "./pages/user/Organization";
 import { OrgRegister } from "./pages/org/OrgRegister";
 import { Posts } from "./pages/user/Posts";
 import { ToastContainer } from "react-toastify";
+import { OrgProfile } from "./pages/org/OrgProfile";
 
 function App() {
   const history = useHistory();
@@ -32,6 +33,7 @@ function App() {
         <Route path="/user/profile" component={UserProfile} />
         <Route path="/user/posts" component={Posts} />
         <Route path="/org/register" component={OrgRegister} />
+        <Route path="/org/profile" component={OrgProfile} />
         <Route path="/admin" component={AdminLogin} />
         <Dashboard />
       </Switch>

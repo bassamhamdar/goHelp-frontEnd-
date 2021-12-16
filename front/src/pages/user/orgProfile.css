@@ -17,25 +17,23 @@
   display: inline-block;
   padding: 1rem;
   margin-bottom: 1rem;
-  margin: 1rem;
 }
 
 .row {
   display: flex;
+  gap: 1rem;
 }
 
 #about {
-  padding-top: 60px;
   padding-bottom: 80px;
   color: #353c4e;
 }
 #about h2 {
-  border-right: 2px solid #00857c;
+  border-left: 2px solid #00857c;
   display: inline-block;
   padding: 10px 20px 10px 10px;
 }
 #about .col-md-12 {
-  text-align: center;
   padding-bottom: 60px;
 }
 #about img {
