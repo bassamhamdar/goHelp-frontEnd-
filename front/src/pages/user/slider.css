@@ -16,7 +16,7 @@
   height: 100%;
 }
 .post-list .post {
-  padding: 10px;
+  padding: 60px;
   box-shadow: 0 1px rgba (0, 0, 0, 0.3);
   border-radius: 5px;
   color: grey;
@@ -24,8 +24,8 @@
   border: none;
   text-align: justify;
   margin-bottom: 1rem;
-  margin-left: 10px;
   display: flex;
+  height: 100px;
 }
 .donate__btn {
   background: #3d9970;

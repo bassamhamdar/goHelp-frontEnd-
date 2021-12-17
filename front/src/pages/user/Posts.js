@@ -9,6 +9,9 @@ export const Posts = () => {
   return (
     <div className="postsWrapper">
       {visible ? <Donate setVisible={setVisible} org_id={orgId} /> : null}
+      <h2 style={{ textAlign: "center", color: "grey", marginTop: "5rem" }}>
+        Posts from Organizations
+      </h2>
       <ul className="post-list" style={{ paddingTop: "5rem", margin: "auto" }}>
         <div className="post">
           <div className="img">
@@ -51,7 +54,7 @@ export const Posts = () => {
               Title
             </h3>
             <h6>2 days ago</h6>
-            <hr />
+            <hr style={{ height: "1px" }} />
             <p
               title="post content"
               style={{ marginBottom: "10px", marginTop: "20px" }}
