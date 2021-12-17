@@ -1,6 +1,6 @@
 import { ActionTypes } from "../../constants/action-types";
 import userApi from "../../../api/user/userApi";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 export const RegisterUser = async (data) => {
   const response = await userApi.post(`/register`, data);
@@ -53,8 +53,9 @@ export const FetchOneOrg = (id) => async (dispatch) => {
 export const SendReq = async (message) => {
   const response = await userApi.post(`/request`, message);
   const data = response.data;
+
   if (data.success) {
-    toast("Your request has been sent!");
+    toast.success("Your request has been sent!");
   } else {
     toast("Error!");
   }

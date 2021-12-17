@@ -14,7 +14,7 @@ import { OrgRegister } from "./pages/org/OrgRegister";
 import { Posts } from "./pages/user/Posts";
 import { ToastContainer } from "react-toastify";
 import { OrgProfile } from "./pages/org/OrgProfile";
-
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   const history = useHistory();
   const path = history.location.pathname;

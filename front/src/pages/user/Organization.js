@@ -9,6 +9,7 @@ import { OrgInfo } from "../../components/OrgInfo";
 
 export const Organization = () => {
   const param = useParams();
+  const org_id = param.id;
   const dispatch = useDispatch();
   const [visible, setVisible] = useState(false);
   const org = useSelector((state) => state.orgs.org);
@@ -33,7 +34,7 @@ export const Organization = () => {
         Send request
       </button>
       {console.log("orggg", org)}
-      {visible ? <Message setVisible={setVisible} /> : null}
+      {visible ? <Message setVisible={setVisible} org_id={org_id} /> : null}
       <OrgInfo />
     </div>
   );
