@@ -17,7 +17,7 @@
 }
 .post-list .post {
   padding: 60px;
-  box-shadow: 0 1px rgba (0, 0, 0, 0.3);
+  box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.4);
   border-radius: 5px;
   color: grey;
   background-color: white;

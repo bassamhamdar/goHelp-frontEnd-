@@ -60,3 +60,23 @@ export const SendReq = async (message) => {
     toast("Error!");
   }
 };
+
+export const Fetchposts = () => async (dispatch) => {
+  const response = await userApi.get("/posts");
+  const data = response.data;
+  console.log("from fetch posts", data);
+  dispatch({
+    type: ActionTypes.FETCH_POSTS,
+    payload: data.data,
+  });
+};
+
+export const DonateOnPost = async (donation) => {
+  const response = await userApi.post("/donate", donation);
+  const data = response.data;
+  if (data.success) {
+    toast.success("Your request has been sent!");
+  } else {
+    toast("Error!");
+  }
+};

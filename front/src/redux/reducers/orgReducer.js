@@ -2,6 +2,7 @@ import { ActionTypes } from "../constants/action-types";
 
 const intialState = {
   org: [],
+  searchOrg: [],
 };
 export const OrgReducer = (state = intialState, { type, payload }) => {
   switch (type) {
@@ -13,10 +14,10 @@ export const OrgReducer = (state = intialState, { type, payload }) => {
       const searched = state.org.filter((item) =>
         item.name.toLowerCase().includes(lowerCased)
       );
-      console.log("search in reducer", searched);
+
       return {
         ...state,
-        org: searched,
+        searchOrg: searched,
       };
     }
 

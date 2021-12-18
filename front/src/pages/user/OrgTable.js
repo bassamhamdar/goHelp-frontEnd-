@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 import { H1 } from "../../style/home";
 export const OrgTable = () => {
   const dispatch = useDispatch();
-  const org = useSelector((state) => state.orgs.org);
+  const { org, searchOrg } = useSelector((state) => state.orgs);
   const handleSearch = (data) => {
     dispatch(SearchOrgs(data));
   };
@@ -58,7 +58,22 @@ export const OrgTable = () => {
         </thead>
         <tbody>
           {org.length > 0 &&
+            searchOrg.length === 0 &&
             org.map((data, i) => (
+              <tr key={i}>
+                <td>{data.name}</td>
+                <td>{data.activity.name}</td>
+                <td>{data.address[0].city}</td>
+                <td>
+                  <ImProfile
+                    style={{ padding: "10px", cursor: "pointer" }}
+                    onClick={() => navigate(data.id)}
+                  />
+                </td>
+              </tr>
+            ))}
+          {searchOrg.length > 0 &&
+            searchOrg.map((data, i) => (
               <tr key={i}>
                 <td>{data.name}</td>
                 <td>{data.activity.name}</td>

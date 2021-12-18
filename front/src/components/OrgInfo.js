@@ -1,21 +1,24 @@
 import React from "react";
 import aboutImg from "../image/about-img.jpg";
 import "../pages/user/orgProfile.css";
-export const OrgInfo = () => {
+export const OrgInfo = ({ org }) => {
   return (
     <div>
       <div id="home"></div>
       <div className="name">
-        <h1
-          style={{
-            color: "#353c4e",
-            textAlign: "center",
-            paddingTop: "1rem",
-            backgroundSize: "100%",
-          }}
-        >
-          ORG NAME
-        </h1>
+        {org && (
+          <h1
+            style={{
+              color: "#353c4e",
+              textAlign: "center",
+              paddingTop: "1rem",
+              backgroundSize: "100%",
+              textTransform: "capitalize",
+            }}
+          >
+            {org.name}
+          </h1>
+        )}
       </div>
       <div className="orgProfile__wrap" style={{ margin: "0 5rem 5rem 5rem" }}>
         <div id="service">

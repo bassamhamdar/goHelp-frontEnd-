@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import orgApi from "../../../api/org/orgApi";
 import { ActionTypes } from "../../constants/action-types";
 
@@ -39,6 +40,29 @@ export const fetchDonReq = (orgId) => async (dispatch) => {
   if (data.success) {
     dispatch({
       type: ActionTypes.FETCH_DON_REQ,
+      payload: data.data,
+    });
+  }
+};
+
+export const createPost = async (input) => {
+  const response = await orgApi.post(`/post`, input);
+  const data = response.data;
+
+  if (data.success) {
+    toast.success("Your post has been added");
+  } else {
+    toast("Error!");
+  }
+};
+
+export const fetchDonations = (orgId) => async (dispatch) => {
+  const response = await orgApi.get(`/all/donations/${orgId}`);
+  const data = response.data;
+  console.log("fetchDon", data);
+  if (data.success) {
+    dispatch({
+      type: ActionTypes.FETCH_DON,
       payload: data.data,
     });
   }

@@ -35,7 +35,7 @@ export const Organization = () => {
       </button>
       {console.log("orggg", org)}
       {visible ? <Message setVisible={setVisible} org_id={org_id} /> : null}
-      <OrgInfo />
+      <OrgInfo org={org} />
     </div>
   );
 };

@@ -24,8 +24,10 @@ export const Message = ({ setVisible, org_id }) => {
     formData.append("image", data.image[0]);
     formData.append("org_id", data.org_id);
     formData.append("user_id", data.user_id);
+    formData.append("isDonation", data.isDonation);
     formData.append("title", data.title);
     formData.append("description", data.description);
+    console.log("message form data", formData);
     SendReq(formData);
   };
 

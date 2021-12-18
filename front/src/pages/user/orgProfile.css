@@ -21,6 +21,7 @@
 
 .row {
   display: flex;
+  justify-content: space-between;
   gap: 1rem;
 }
 
@@ -45,9 +46,20 @@
 }
 .PopUp {
   position: absolute;
-  top: 185%;
-  right: 25%;
+  top: 50%;
+  right: 0%;
   width: 50%;
+  min-height: 300px;
+  transform: translate(-50%, -50%);
   background-color: #00857c;
   color: #fff;
+}
+.PopUp__container {
+  color: #fff;
+  margin: 1rem;
+}
+.Popup__row {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
 }

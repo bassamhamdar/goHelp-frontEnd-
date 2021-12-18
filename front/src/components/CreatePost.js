@@ -9,6 +9,7 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import { createPost } from "../redux/actions/org/orgActions";
 export const CreatePost = () => {
   const schema = yup.object().shape({
     title: yup.string().required(),
@@ -23,13 +24,14 @@ export const CreatePost = () => {
   const onSubmit = (data) => {
     const formData = new FormData();
     formData.append("image", data.image[0]);
-    formData.append("org_id");
-    formData.append("title");
-    formData.append("description");
+    formData.append("org_id", data.org_id);
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    createPost(formData);
   };
   return (
     <CreateForm onSubmit={handleSubmit(onSubmit)}>
-      <CreateInput type="hidden" value={1} {...register("org_id")} />
+      <CreateInput type="hidden" value="2" {...register("org_id")} />
       <CreateInput placeholder="Post title ..." {...register("title")} />
       <CreateText
         placeholder="Write what you need ..."
