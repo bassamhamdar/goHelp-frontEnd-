@@ -8,7 +8,7 @@ export const UserDonation = () => {
       <div id="about">
         <div className="container">
           <div className="col-md-12 col-sm-12">
-            <h2>New Donations</h2>
+            <h2>Donations on posts</h2>
           </div>
           <div className="row">
             <div className="col-md-6 col-sm-6">

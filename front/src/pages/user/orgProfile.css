@@ -43,3 +43,11 @@
 #about h4 {
   padding-bottom: 10px;
 }
+.PopUp {
+  position: absolute;
+  top: 185%;
+  right: 25%;
+  width: 50%;
+  background-color: #00857c;
+  color: #fff;
+}

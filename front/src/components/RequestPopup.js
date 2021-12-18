@@ -1,19 +1,15 @@
 import React, { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import helpImg from "../image/concor.jpg";
-import { fetchDonReq, fetchHelpReq } from "../redux/actions/org/orgActions";
-export const UserRequest = () => {
-  const helpReq = useSelector((state) => state.req);
-  const donReq = useSelector((state) => state.req);
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(fetchHelpReq(1));
-    dispatch(fetchDonReq(1));
-  }, [dispatch]);
+
+export const RequestPopup = ({ data, setVisible }) => {
   return (
-    <div className="Donations" style={{ margin: "0 5rem 5rem" }}>
-      {console.log("Req", donReq)}
+    <div className="PopUp">
+      {console.log("popup", data)}
+      <div
+        style={{ float: "right", margin: "1rem", cursor: "pointer" }}
+        onClick={() => setVisible(false)}
+      >
+        X
+      </div>
       <div id="about">
         <div className="container">
           <div className="col-md-12 col-sm-12">
@@ -42,7 +38,7 @@ export const UserRequest = () => {
             </div>
             <div className="col-md-6 col-sm-6">
               <img
-                src={helpImg}
+                src={`http://localhost:8000/{req.image}`}
                 className="img-responsive"
                 alt="about img"
                 style={{ width: "200px" }}

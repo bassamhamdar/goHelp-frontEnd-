@@ -24,6 +24,7 @@ export const loginOrg = (cred) => async (dispatch) => {
 export const fetchHelpReq = (orgId) => async (dispatch) => {
   const response = await orgApi.get(`/helpRequests/${orgId}`);
   const data = response.data;
+  console.log("fetchHelpReq", data);
   if (data.success) {
     dispatch({
       type: ActionTypes.FETCH_HELP_REQ,
