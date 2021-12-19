@@ -1,18 +1,18 @@
 import React from "react";
 import {
-  LoginForm,
-  Input,
-  Title,
-  Link,
-  LoginInput,
   Error,
+  Input,
+  Link,
+  LoginForm,
+  LoginInput,
+  Title,
 } from "../../style/login";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { loginUser } from "../../redux/actions/user/userActions";
 import { useHistory } from "react-router-dom";
-export default function UserLogin() {
+import { loginOrg } from "../../redux/actions/org/orgActions";
+export const OrgLogin = () => {
   const schema = yup.object().shape({
     email: yup.string().min(3).required(),
     password: yup.string().required(),
@@ -26,14 +26,13 @@ export default function UserLogin() {
   } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = async (data) => {
-    await loginUser(data);
-    history.push("/user/org");
+    await loginOrg(data);
+    history.push("/org/profile");
     reset();
   };
-
   return (
     <LoginForm onSubmit={handleSubmit(onSubmit)}>
-      <Title>Welcome User</Title>
+      <Title>Welcome Organization</Title>
       <Input placeholder="Email" {...register("email")} />
       <Error>{errors.username?.message}</Error>
       <Input placeholder="Password" {...register("password")} type="password" />
@@ -42,4 +41,4 @@ export default function UserLogin() {
       <Link>forgot your password ?</Link>
     </LoginForm>
   );
-}
+};

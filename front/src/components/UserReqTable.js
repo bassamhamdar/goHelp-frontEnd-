@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { StyledTable } from "../style/table";
 import { fetchDonReq, fetchHelpReq } from "../redux/actions/org/orgActions";
 import { ImProfile } from "react-icons/im";
-import { useHistory } from "react-router-dom";
+
 import { RequestPopup } from "./RequestPopup";
 
 export const UserReqTable = () => {
@@ -19,7 +19,6 @@ export const UserReqTable = () => {
   }, [dispatch]);
   return (
     <>
-      {console.log("reqssss", helpReq, donReq)}
       <h1
         style={{
           color: "#353c4e",

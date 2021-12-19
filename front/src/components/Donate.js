@@ -6,6 +6,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { DonateOnPost } from "../redux/actions/user/userActions";
 export const Donate = ({ setVisible, post_id }) => {
+  const user_id = localStorage.getItem("user_id");
   const schema = yup.object().shape({
     message: yup.string().required(),
   });
@@ -34,7 +35,11 @@ export const Donate = ({ setVisible, post_id }) => {
       >
         x
       </Button>
-      <Input type="hidden" value="1" {...register("user_id")} />
+      <Input
+        type="hidden"
+        value={localStorage.getItem("user_id")}
+        {...register("user_id")}
+      />
       <Input type="hidden" value={post_id} {...register("post_id")} />
       <TextArea placeholder=" Message ..." {...register("message")} />
       <Input placeholder="image" type="file" {...register("image")} />

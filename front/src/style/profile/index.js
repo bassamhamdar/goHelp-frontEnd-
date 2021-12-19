@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
+  margin-top: 3.7rem;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -42,6 +43,7 @@ export const H3 = styled.h3`
 export const H4 = styled.h4`
   color: #353c4e;
   margin-bottom: 5px;
+  text-transform: capitalize;
 `;
 
 export const InfoData = styled.div`

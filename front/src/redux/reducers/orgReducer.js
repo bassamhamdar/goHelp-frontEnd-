@@ -3,6 +3,7 @@ import { ActionTypes } from "../constants/action-types";
 const intialState = {
   org: [],
   searchOrg: [],
+  profile: [],
 };
 export const OrgReducer = (state = intialState, { type, payload }) => {
   switch (type) {
@@ -23,7 +24,8 @@ export const OrgReducer = (state = intialState, { type, payload }) => {
 
     case ActionTypes.FETCH_ONE_ORG:
       return { ...state, org: payload };
-
+    case ActionTypes.FETCH_ORG_PROFILE:
+      return { ...state, profile: payload };
     default:
       return state;
   }

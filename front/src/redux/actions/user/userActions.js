@@ -1,36 +1,49 @@
 import { ActionTypes } from "../../constants/action-types";
 import userApi from "../../../api/user/userApi";
 import { toast } from "react-toastify";
-import { useHistory } from "react-router-dom";
 
 export const RegisterUser = async (data) => {
   const response = await userApi.post(`/register`, data);
   data = response.data;
   console.log("set use", data);
 };
-
-export const loginUser = (cred) => async (dispatch) => {
+export const logoutUser = async () => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("user_token")}`,
+    },
+  };
+  const response = await userApi.post("/logout", {}, config);
+  const data = response.data;
+  if (data.success) {
+    localStorage.removeItem("user_token");
+    localStorage.removeItem("user_id");
+    localStorage.removeItem("user_name");
+    toast.success("logged out");
+  }
+};
+export const loginUser = async (cred) => {
   const response = await userApi.post("/login", cred);
   const data = response.data;
-  let user = {
-    token: data.access_token,
-    id: data.data[0].id,
-    firstName: data.data[0].firstname,
-    lastname: data.data[0].lastname,
-  };
+
   if (data.success) {
-    localStorage.setItem("user_token", JSON.stringify(data.access_token));
+    localStorage.setItem("user_token", data.access_token);
+    localStorage.setItem("user_id", data.data[0].id);
+    localStorage.setItem("user_name", data.data[0].firstName);
     toast.success("logged in");
   } else {
     toast.error("wrong Credentials");
   }
-  // let parse = JSON.parse(localStorage.getItem("user"));
-
-  // console.log(parse);
 };
 
 export const FetchOrgs = () => async (dispatch) => {
-  const response = await userApi.get("/org");
+  let config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("user_token")}`,
+    },
+  };
+  const response = await userApi.get("/org", config);
+  console.log("fetch orgs", response);
   const data = response.data;
   console.log("data", data);
   dispatch({
@@ -47,9 +60,14 @@ export const SearchOrgs = (data) => async (dispatch) => {
 };
 
 export const FetchOneOrg = (id) => async (dispatch) => {
-  const response = await userApi.get(`/org/profile/${id}`);
+  let config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("user_token")}`,
+    },
+  };
+  const response = await userApi.get(`/org/profile/${id}`, config);
   const data = response.data;
-  console.log("data", data);
+  console.log("data for one org", data);
   dispatch({
     type: ActionTypes.FETCH_ONE_ORG,
     payload: data.data,
@@ -57,7 +75,12 @@ export const FetchOneOrg = (id) => async (dispatch) => {
 };
 
 export const SendReq = async (message) => {
-  const response = await userApi.post(`/request`, message);
+  let config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("user_token")}`,
+    },
+  };
+  const response = await userApi.post(`/request`, message, config);
   const data = response.data;
 
   if (data.success) {
@@ -68,7 +91,12 @@ export const SendReq = async (message) => {
 };
 
 export const Fetchposts = () => async (dispatch) => {
-  const response = await userApi.get("/posts");
+  let config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("user_token")}`,
+    },
+  };
+  const response = await userApi.get("/posts", config);
   const data = response.data;
   console.log("from fetch posts", data);
   dispatch({
@@ -78,11 +106,31 @@ export const Fetchposts = () => async (dispatch) => {
 };
 
 export const DonateOnPost = async (donation) => {
-  const response = await userApi.post("/donate", donation);
+  let config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("user_token")}`,
+    },
+  };
+  const response = await userApi.post("/donate", donation, config);
   const data = response.data;
   if (data.success) {
     toast.success("Your request has been sent!");
   } else {
     toast("Error!");
   }
+};
+export const fetchProfile = () => async (dispatch) => {
+  let id = localStorage.getItem("user_id");
+  let config = {
+    headers: {
+      Authorization: `Bearer ${localStorage.getItem("user_token")}`,
+    },
+  };
+  const response = await userApi.get(`profile/${id}`, config);
+  const data = response.data;
+  console.log("prof", data);
+  dispatch({
+    type: ActionTypes.FETCH_PROFILE,
+    payload: data.data,
+  });
 };

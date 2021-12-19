@@ -33,7 +33,7 @@ export const Organization = () => {
       >
         Send request
       </button>
-      {console.log("orggg", org)}
+      {console.log("org profile", org)}
       {visible ? <Message setVisible={setVisible} org_id={org_id} /> : null}
       <OrgInfo org={org} />
     </div>

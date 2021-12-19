@@ -11,9 +11,8 @@ export const User = () => {
   return (
     <>
       <Nav />
-
-      <Route path="/user/org/profile/:id" exact component={Organization} />
-      <Route path="/user/org" component={OrgTable} />
+      <Route path="/user/org" exact component={OrgTable} />
+      <Route path="/user/org/profile/:id" component={Organization} />
       <Route path="/user/profile" component={UserProfile} />
       <Route path="/user/posts" component={Posts} />
     </>

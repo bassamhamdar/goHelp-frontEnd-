@@ -52,7 +52,11 @@ export const Message = ({ setVisible, org_id }) => {
           <option value="0">help request</option>
           <option value="1">donation request</option>
         </Select>
-        <Input type="hidden" value="1" {...register("user_id")} />
+        <Input
+          type="hidden"
+          value={localStorage.getItem("user_id")}
+          {...register("user_id")}
+        />
         <Input type="hidden" value={org_id} {...register("org_id")} />
 
         <Input placeholder="title" {...register("title")} />
