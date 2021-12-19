@@ -1,6 +1,7 @@
 import { ActionTypes } from "../../constants/action-types";
 import userApi from "../../../api/user/userApi";
 import { toast } from "react-toastify";
+import { useHistory } from "react-router-dom";
 
 export const RegisterUser = async (data) => {
   const response = await userApi.post(`/register`, data);
@@ -17,10 +18,15 @@ export const loginUser = (cred) => async (dispatch) => {
     firstName: data.data[0].firstname,
     lastname: data.data[0].lastname,
   };
-  localStorage.setItem("user", JSON.stringify(user));
-  let parse = JSON.parse(localStorage.getItem("user"));
+  if (data.success) {
+    localStorage.setItem("user_token", JSON.stringify(data.access_token));
+    toast.success("logged in");
+  } else {
+    toast.error("wrong Credentials");
+  }
+  // let parse = JSON.parse(localStorage.getItem("user"));
 
-  console.log(parse);
+  // console.log(parse);
 };
 
 export const FetchOrgs = () => async (dispatch) => {

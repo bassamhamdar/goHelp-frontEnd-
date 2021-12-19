@@ -15,6 +15,8 @@ import { Posts } from "./pages/user/Posts";
 import { ToastContainer } from "react-toastify";
 import { OrgProfile } from "./pages/org/OrgProfile";
 import "react-toastify/dist/ReactToastify.css";
+import { UserProtectedRoute } from "./components/UserProtectedRoute";
+import { User } from "./pages/user/User";
 function App() {
   const history = useHistory();
   const path = history.location.pathname;
@@ -28,13 +30,10 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/user/register" component={UserRegister} />
         <Route path="/user/login" component={UserLogin} />
-        <Route path="/user/org/profile/:id" exact component={Organization} />
-        <Route path="/user/org" component={OrgTable} />
-        <Route path="/user/profile" component={UserProfile} />
-        <Route path="/user/posts" component={Posts} />
         <Route path="/org/register" component={OrgRegister} />
         <Route path="/org/profile" component={OrgProfile} />
         <Route path="/admin" component={AdminLogin} />
+        <UserProtectedRoute path="/user" component={User} />
         <Dashboard />
       </Switch>
       <ToastContainer />

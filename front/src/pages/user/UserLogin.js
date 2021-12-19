@@ -13,7 +13,7 @@ import * as yup from "yup";
 import { loginUser } from "../../redux/actions/user/userActions";
 import { useDispatch, useSelector } from "react-redux";
 
-export default function Login() {
+export default function UserLogin() {
   const schema = yup.object().shape({
     email: yup.string().min(3).required(),
     password: yup.string().required(),
