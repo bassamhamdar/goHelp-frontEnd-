@@ -17,11 +17,6 @@ export const UsersDashboard = () => {
       <TtilePage>users</TtilePage>;
       <StyledTable>
         <caption>Users in goHelp</caption>
-        <colgroup>
-          <col />
-          <col />
-          <col />
-        </colgroup>
         <thead>
           <tr>
             <th>First name</th>
@@ -37,8 +32,10 @@ export const UsersDashboard = () => {
               <td>{user.lastname}</td>
               <td>{user.email}</td>
               <td>
-                <SiAdblock style={{ color: "red", padding: "10px" }} />
-                <ImProfile style={{ padding: "10px" }} />
+                <SiAdblock
+                  style={{ color: "red", padding: "10px", cursor: "pointer" }}
+                />
+                <ImProfile style={{ padding: "10px", cursor: "pointer" }} />
               </td>
             </tr>
           ))}

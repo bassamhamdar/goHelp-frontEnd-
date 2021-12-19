@@ -7,12 +7,11 @@ export const StyledTable = styled.table`
   margin-left: auto;
   margin-right: auto;
 
-  caption-side: top;
   border-collapse: collapse;
   border-collapse: separate;
   border-spacing: 5px 5px;
 
-  caption-side: bottom;
+  caption-side: none;
   empty-cell: show | hide;
   empty-cell is a property of table or the cells themselves td,
   th {

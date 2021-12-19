@@ -45,14 +45,15 @@
   padding-bottom: 10px;
 }
 .PopUp {
-  position: absolute;
+  position: fixed;
   top: 50%;
   right: 0%;
   width: 50%;
   min-height: 300px;
   transform: translate(-50%, -50%);
-  background-color: #00857c;
-  color: #fff;
+  background-color: #fff;
+  color: grey;
+  box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.4);
 }
 .PopUp__container {
   color: #fff;

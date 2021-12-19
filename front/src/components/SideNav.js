@@ -31,6 +31,9 @@ export const SideNav = () => {
         <Link href="/dashboard/org" display={display}>
           Organizations
         </Link>
+        <Link href="" display={display}>
+          Logout
+        </Link>
       </SideBar>
     </Menu>
   );

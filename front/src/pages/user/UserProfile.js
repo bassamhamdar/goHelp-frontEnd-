@@ -13,10 +13,24 @@ import {
 } from "../../style/profile";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
-
+import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
+import { Pie } from "react-chartjs-2";
 export const UserProfile = () => {
   const info = useSelector((state) => state.prof.profile);
   const dispatch = useDispatch();
+  ChartJS.register(ArcElement, Tooltip, Legend);
+  let data = {
+    labels: ["Donations", "Requests"],
+    datasets: [
+      {
+        label: "# of Votes",
+        data: [1, 3],
+        backgroundColor: ["rgba(255, 99, 132, 0.2)", "rgba(54, 162, 235, 0.2)"],
+        borderColor: ["rgba(255, 99, 132, 1)", "rgba(54, 162, 235, 1)"],
+        borderWidth: 1,
+      },
+    ],
+  };
 
   useEffect(() => {
     dispatch(fetchProfile());
@@ -64,6 +78,16 @@ export const UserProfile = () => {
               </Data>
             </InfoData>
           </Info>
+          <div
+            className="chart"
+            style={{
+              width: "300px",
+              height: "300px",
+              marginLeft: "8rem",
+            }}
+          >
+            <Pie data={data} />
+          </div>
         </Right>
       </Wrapper>
     </>

@@ -24,6 +24,7 @@ export const logoutUser = async () => {
 };
 export const loginUser = async (cred) => {
   const response = await userApi.post("/login", cred);
+  console.log("login response", response);
   const data = response.data;
 
   if (data.success) {

@@ -18,12 +18,6 @@ export const OrgDashboard = () => {
       <TtilePage>Organizations</TtilePage>
       <StyledTable org>
         <caption>Organizations in goHelp</caption>
-        <colgroup>
-          <col />
-          <col />
-          <col />
-          <col />
-        </colgroup>
         <thead>
           <tr>
             <th>Name</th>
@@ -34,56 +28,18 @@ export const OrgDashboard = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>org 1</td>
-            <td>org activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
-            <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
-          <tr>
-            <td>org 2</td>
-            <td>org 2 activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
-            <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
-          <tr>
-            <td>org 2</td>
-            <td>org 2 activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
-            <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
-          <tr>
-            <td>org 2</td>
-            <td>org 2 activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
-            <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
-          <tr>
-            <td>org 2</td>
-            <td>org 2 activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
-            <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
+          {orgs.map((org, i) => (
+            <tr>
+              <td>{org.name}</td>
+              <td>{org.activity.name}</td>
+              <td>{org.email}</td>
+              {org.status === 1 ? <td>Approved</td> : <td>Not Approved</td>}
+              <td>
+                <SiAdblock style={{ color: "red", padding: "10px" }} />
+                <ImProfile style={{ padding: "10px" }} />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </StyledTable>
       <Ttile>Register Requests</Ttile>;

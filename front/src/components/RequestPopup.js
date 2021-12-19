@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 export const RequestPopup = ({ data, setVisible }) => {
   return (
     <div className="PopUp">
-      {console.log("popup", data)}
       <div
         style={{ float: "right", margin: "1rem", cursor: "pointer" }}
         onClick={() => setVisible(false)}
@@ -17,7 +16,7 @@ export const RequestPopup = ({ data, setVisible }) => {
               <h4>
                 From: {data.user.firstname} {data.user.lastname}
               </h4>
-              <h5>Type: help request</h5>
+
               <h6>Date: {data.created_at}</h6>
               <br />
               <h6>Title: {data.title}</h6>

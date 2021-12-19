@@ -3,9 +3,9 @@ import styled from "styled-components";
 export const Form = styled.form`
   left: 50%;
   top: 50%;
-  position: absolute;
+  position: fixed;
   transform: translate(-50%, -50%);
-  width: 40%;
+  width: 50%;
   border: none;
   border-radius: 6px;
   box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.4);
