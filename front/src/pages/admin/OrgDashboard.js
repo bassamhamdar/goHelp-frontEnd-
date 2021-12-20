@@ -1,13 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { TtilePage, Ttile } from "../../style/app";
 import { StyledTable } from "../../style/table";
 import { SiAdblock } from "react-icons/si";
 import { ImProfile } from "react-icons/im";
+import { AiOutlineCheckCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import { FetchOrgs } from "../../redux/actions/admin/adminActions";
+import { toast } from "react-toastify";
+import { OrgProfilePopUp } from "../../components/OrgProfilePopUp";
 
 export const OrgDashboard = () => {
   const orgs = useSelector((state) => state.orgs.org);
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(FetchOrgs());
@@ -15,7 +19,7 @@ export const OrgDashboard = () => {
   return (
     <>
       {console.log("orgs", orgs)}
-      <TtilePage>Organizations</TtilePage>
+      <TtilePage style={{ fontSize: "30px" }}>Organizations</TtilePage>
       <StyledTable org>
         <caption>Organizations in goHelp</caption>
         <thead>
@@ -35,14 +39,20 @@ export const OrgDashboard = () => {
               <td>{org.email}</td>
               {org.status === 1 ? <td>Approved</td> : <td>Not Approved</td>}
               <td>
-                <SiAdblock style={{ color: "red", padding: "10px" }} />
-                <ImProfile style={{ padding: "10px" }} />
+                <SiAdblock
+                  style={{ color: "red", padding: "10px", cursor: "pointer" }}
+                  onClick={() => toast.success("Blocked")}
+                />
+                <ImProfile
+                  style={{ padding: "10px", cursor: "pointer" }}
+                  onClick={() => setVisible(true)}
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </StyledTable>
-      <Ttile>Register Requests</Ttile>;
+      <Ttile style={{ fontSize: "30px" }}>Register Requests</Ttile>;
       <StyledTable Reg>
         <caption>Organizations in goHelp</caption>
         <colgroup>
@@ -62,57 +72,45 @@ export const OrgDashboard = () => {
         </thead>
         <tbody>
           <tr>
-            <td>org 1</td>
-            <td>org activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
+            <td>Restart</td>
+            <td>Medical</td>
+            <td>Restart@gmail.com</td>
+            <td>False</td>
             <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
+              <AiOutlineCheckCircle
+                style={{ padding: "10px", cursor: "pointer" }}
+                onClick={() => toast.success("Approved")}
+              />
+              <ImProfile style={{ padding: "10px", cursor: "pointer" }} />
             </td>
           </tr>
           <tr>
-            <td>org 2</td>
-            <td>org 2 activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
+            <td>Help Lebanon</td>
+            <td>Others</td>
+            <td>Help@gmail.com</td>
+            <td>False</td>
             <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
+              <AiOutlineCheckCircle
+                style={{ padding: "10px", cursor: "pointer" }}
+                o
+              />
               <ImProfile style={{ padding: "10px" }} />
             </td>
           </tr>
+
           <tr>
-            <td>org 2</td>
-            <td>org 2 activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
+            <td>Nahnoo</td>
+            <td>Others</td>
+            <td>Nahno@gmail.com</td>
+            <td>False</td>
             <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
-          <tr>
-            <td>org 2</td>
-            <td>org 2 activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
-            <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
-          <tr>
-            <td>org 2</td>
-            <td>org 2 activity name</td>
-            <td>email@gmail.com</td>
-            <td>Approved</td>
-            <td>
-              <SiAdblock style={{ color: "red", padding: "10px" }} />
+              <AiOutlineCheckCircle style={{ padding: "10px" }} />
               <ImProfile style={{ padding: "10px" }} />
             </td>
           </tr>
         </tbody>
       </StyledTable>
+      {visible ? <OrgProfilePopUp setVisible={setVisible} /> : null}
     </>
   );
 };

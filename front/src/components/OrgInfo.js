@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import aboutImg from "../image/about-img.jpg";
 import "../pages/user/orgProfile.css";
+import { CreatePost } from "./CreatePost";
 export const OrgInfo = ({ org }) => {
+  const [isVisible, setVisible] = useState(false);
+  let org_token = localStorage.getItem("org_token");
   return (
     <div>
       <div id="home"></div>
@@ -14,34 +17,54 @@ export const OrgInfo = ({ org }) => {
               paddingTop: "1rem",
               backgroundSize: "100%",
               textTransform: "capitalize",
+              fontSize: "40px",
+              marginBottom: "2rem",
             }}
           >
             {org.name}
           </h1>
+        )}
+        {org_token && (
+          <button
+            style={{
+              height: "2.5rem",
+              width: "8rem",
+              background: " #00857c",
+              border: "none",
+              color: "#fff",
+              padding: "0.2rem",
+              position: "absolute",
+              top: "62%",
+              right: "45%",
+              cursor: "pointer",
+            }}
+            onClick={() => setVisible(true)}
+          >
+            Create Post
+          </button>
         )}
       </div>
       <div className="orgProfile__wrap" style={{ margin: "0 5rem 5rem 5rem" }}>
         <div id="service">
           <div className="container">
             <div className="header">
-              <h2 style={{ textAlign: "center" }}>Our Porfile</h2>
+              <h2 style={{ textAlign: "center" }}>Our Profile</h2>
             </div>
             <div className="row">
               <div className="col-md-4 col-sm-4">
                 <i className="fa fa-cubes"></i>
                 <h3>Mission</h3>
-                <p style={{ maxWidth: "700px" }}>
+                <p style={{ maxWidth: "400px" }}>
                   We connect people around the world in the fight to end
                   poverty. Working together, we invest in the lives of children
                   and youth, build the healthy environments they need to thrive,
-                  and empower them to create lasting change in their own lives
-                  and com
+                  and empower them to create lasting change in their own lives.
                 </p>
               </div>
               <div className="col-md-4 col-sm-4">
                 <i className="fa fa-cogs"></i>
                 <h3>Achievements</h3>
-                <p style={{ maxWidth: "700px" }}>
+                <p style={{ maxWidth: "400px" }}>
                   Brought clean and safe drinking water to people in developing
                   countries. feed America’s hungry through a nationwide network
                   of member food banks and engaged our country in the fight to
@@ -92,6 +115,7 @@ export const OrgInfo = ({ org }) => {
           </div>
         </div>
       </div>
+      {isVisible ? <CreatePost setVisible={setVisible} /> : null}
     </div>
   );
 };

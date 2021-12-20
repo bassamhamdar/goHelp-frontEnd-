@@ -10,7 +10,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { createPost } from "../redux/actions/org/orgActions";
-export const CreatePost = () => {
+export const CreatePost = ({ setVisible }) => {
+  let org_id = localStorage.getItem("org_id");
   const schema = yup.object().shape({
     title: yup.string().required(),
     description: yup.string().required(),
@@ -30,15 +31,22 @@ export const CreatePost = () => {
     createPost(formData);
   };
   return (
-    <CreateForm onSubmit={handleSubmit(onSubmit)}>
-      <CreateInput type="hidden" value="2" {...register("org_id")} />
-      <CreateInput placeholder="Post title ..." {...register("title")} />
-      <CreateText
-        placeholder="Write what you need ..."
-        {...register("description")}
-      />
-      <CreateInput placeholder="image" type="file" {...register("image")} />
-      <CreateButton type="submit" value="create" />
-    </CreateForm>
+    <>
+      <CreateForm onSubmit={handleSubmit(onSubmit)}>
+        <CreateInput type="hidden" value={org_id} {...register("org_id")} />
+        <CreateInput placeholder="Post Title ..." {...register("title")} />
+        <CreateText
+          placeholder="Write what you need ..."
+          {...register("description")}
+        />
+        <CreateInput placeholder="image" type="file" {...register("image")} />
+        <CreateButton type="submit" value="Create" />
+        <CreateButton
+          value="Cancle"
+          onClick={() => setVisible(false)}
+          style={{ width: "3rem", backgroundColor: "tomato" }}
+        />
+      </CreateForm>
+    </>
   );
 };

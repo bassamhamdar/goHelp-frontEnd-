@@ -3,6 +3,7 @@ import { useHistory } from "react-router";
 import { logoutUser } from "../redux/actions/user/userActions";
 import { logoutOrg } from "../redux/actions/org/orgActions";
 import { Logo, NavMenu, NavSection, NavSpan } from "../style/nav";
+import { MdAccountCircle } from "react-icons/md";
 export const Nav = () => {
   const history = useHistory();
   const navigate = (path) => history.push(path);
@@ -38,7 +39,9 @@ export const Nav = () => {
       >
         {user_token ? (
           <>
-            <NavSpan onClick={() => navigate("/user/profile")}>Profile</NavSpan>
+            <NavSpan onClick={() => navigate("/user/org")}>
+              Organizations
+            </NavSpan>
             <NavSpan onClick={() => navigate("/user/posts")}>News Feed</NavSpan>
           </>
         ) : null}
@@ -69,7 +72,14 @@ export const Nav = () => {
           <NavSpan onClick={() => navigate("/user/login")}>Log in</NavSpan>
         )}
 
-        {user_token && <NavSpan onClick={() => handleClick()}>Log out</NavSpan>}
+        {user_token && (
+          <>
+            <NavSpan onClick={() => handleClick()}>Log out</NavSpan>
+            <NavSpan onClick={() => navigate("/user/profile")}>
+              <MdAccountCircle size={30} />
+            </NavSpan>
+          </>
+        )}
         {org_token && (
           <NavSpan onClick={() => handleOrgLogout()}>Log out</NavSpan>
         )}

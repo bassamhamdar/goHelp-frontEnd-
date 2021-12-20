@@ -29,38 +29,38 @@ export const Home = () => {
   return (
     <>
       <Nav />
-      <HeaderImage>
-        <ImageHeader>Becasue they need your help</ImageHeader>
+      <HeaderImage style={{ marginTop: "60px" }}>
+        <ImageHeader>Because they need your help</ImageHeader>
         <ImageParg>do not let them down</ImageParg>
       </HeaderImage>
       <AboutUs />
-      <H1>Here's how it works</H1>
+      <H1>Here's How it Works</H1>
       <Flex>
         <FlexItem>
           <Circle img={Profile}></Circle>
-          <H3>Create profile</H3>
+          <H3>Create Profile</H3>
         </FlexItem>
         <FlexItem>
           <Circle img={Ngo}></Circle>
-          <H3>Select organization</H3>
+          <H3>Select Organization</H3>
         </FlexItem>
         <FlexItem>
           <Circle img={Request}></Circle>
-          <H3>Send help/donate request</H3>
+          <H3>Send Help/Donate </H3>
         </FlexItem>
       </Flex>
       <Organization>
-        <RegisterH1>For organizations {"->"} </RegisterH1>
+        <RegisterH1>For Organizations {"->"} </RegisterH1>
         <RegisterButton onClick={() => handleClick()}>
-          Register here
+          Register Here
         </RegisterButton>
       </Organization>
       <FooterSection>
         <Section>
           <FooterH3>Learn More</FooterH3>
-          <P>How goHelp works</P>
-          <P>Success stories</P>
-          <P>Supported countries</P>
+          <P>How GoHelp Works</P>
+          <P>Success Stories</P>
+          <P>Supported Countries</P>
           <P>Pricing</P>
         </Section>
         <Section>

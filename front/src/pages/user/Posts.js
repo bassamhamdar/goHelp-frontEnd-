@@ -24,7 +24,7 @@ export const Posts = () => {
       <ul className="post-list" style={{ paddingTop: "5rem", margin: "auto" }}>
         {posts.length > 0 &&
           posts.map((data, i) => (
-            <div className="post">
+            <div className="post" style={{ height: "150px" }}>
               <div className="img">
                 <img
                   src={`http://localhost:8000/${data.image}`}
@@ -33,12 +33,20 @@ export const Posts = () => {
                 />
               </div>
               <div>
-                <h4>From: {data.organization.name}</h4>
+                <h4>
+                  From:{" "}
+                  <span style={{ fontWeight: "normal" }}>
+                    {data.organization.name}
+                  </span>
+                </h4>
                 <h3 className="post-title" title="title">
-                  Title: {data.title}
+                  Title:{" "}
+                  <span style={{ fontWeight: "normal" }}>{data.title}</span>
                 </h3>
 
-                <h6>date: {data.created_at}</h6>
+                <h6 style={{ paddingTop: "20px", paddingBottom: "20px" }}>
+                  date: 30 min ago
+                </h6>
                 <hr style={{ height: "1px" }} />
                 <p
                   title="post content"

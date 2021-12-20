@@ -58,7 +58,7 @@ export const HomeDashboard = () => {
   };
   return (
     <div className="Admin-Charts" style={{ width: "80%", margin: "auto" }}>
-      <TtilePage>Welcome Admin</TtilePage>
+      <TtilePage style={{ fontSize: "30px" }}>Welcome Admin</TtilePage>
       <Bar options={options} data={data} />
     </div>
   );

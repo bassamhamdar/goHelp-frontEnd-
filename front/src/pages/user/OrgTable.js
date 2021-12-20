@@ -24,7 +24,7 @@ export const OrgTable = () => {
             color: "#353c4e",
           }}
         >
-          Search for registered organizations
+          Search for Registered Organizations
         </h1>
 
         <input
@@ -53,7 +53,7 @@ export const OrgTable = () => {
             <th>Name</th>
             <th>Activity</th>
             <th>City</th>
-            <th>Action</th>
+            <th>Visit Profile</th>
           </tr>
         </thead>
         <tbody>

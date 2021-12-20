@@ -1,12 +1,16 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { TtilePage } from "../../style/app";
 import { StyledTable } from "../../style/table";
 import { SiAdblock } from "react-icons/si";
 import { ImProfile } from "react-icons/im";
 import { useSelector, useDispatch } from "react-redux";
 import { FetchUsers } from "../../redux/actions/admin/adminActions";
+import { ProfilePopUp } from "../../components/ProfilePopUp";
+import { toast } from "react-toastify";
+
 export const UsersDashboard = () => {
   const users = useSelector((state) => state.users.users);
+  const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(FetchUsers());
@@ -14,7 +18,7 @@ export const UsersDashboard = () => {
   return (
     <>
       {console.log("users", users)}
-      <TtilePage>users</TtilePage>;
+      <TtilePage style={{ fontSize: "30px" }}>Users</TtilePage>;
       <StyledTable>
         <caption>Users in goHelp</caption>
         <thead>
@@ -34,13 +38,18 @@ export const UsersDashboard = () => {
               <td>
                 <SiAdblock
                   style={{ color: "red", padding: "10px", cursor: "pointer" }}
+                  onClick={() => toast.success("Blocked")}
                 />
-                <ImProfile style={{ padding: "10px", cursor: "pointer" }} />
+                <ImProfile
+                  style={{ padding: "10px", cursor: "pointer" }}
+                  onClick={() => setVisible(true)}
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </StyledTable>
+      {visible ? <ProfilePopUp setVisible={setVisible} /> : null}
     </>
   );
 };

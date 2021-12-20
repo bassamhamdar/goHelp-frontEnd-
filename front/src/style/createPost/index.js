@@ -1,13 +1,16 @@
 import styled from "styled-components";
 
 export const CreateForm = styled.form`
-  width: 50%;
-  margin-left: 5rem;
-  margin-bottom: 5rem;
+  position: fixed;
+  top: 50%;
+  right: -10%;
+  width: 60%;
+  background-color: #fff;
+  transform: translate(-50%, -50%);
 `;
 
 export const CreateInput = styled.input`
-  width: 100%;
+  width: 90%;
   padding: 0.3rem;
   margin: 0.7rem;
   border: none;
@@ -16,7 +19,7 @@ export const CreateInput = styled.input`
   box-shadow: 1px 1px 1px 1px rgba(128, 128, 128, 0.4);
 `;
 export const CreateText = styled.textarea`
-  width: 100%;
+  width: 90%;
   padding: 0.3rem;
   margin: 0.7rem;
   border: none;

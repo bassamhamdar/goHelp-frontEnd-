@@ -9,6 +9,7 @@ export const AboutCol = styled.div`
   margin: 2rem;
   padding: 2rem;
   min-height: 200px;
+  width: 430px;
   background: #005c55;
 `;
 

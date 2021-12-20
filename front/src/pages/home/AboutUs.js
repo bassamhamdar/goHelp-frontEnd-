@@ -16,33 +16,33 @@ export const AboutUs = () => {
     <AboutRow>
       <AboutCol>
         <Icon src={ourmission} />
-        <H3>our mission</H3>
+        <H3>Our Mission</H3>
         <Details>
           <P>
-            Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus
-            ut eta esami vera dolor sit amet consect
+            Connect people with verified organizations to communicate, send
+            donations and help requests.
           </P>
         </Details>
         <ReadMore href="#">Read more</ReadMore>
       </AboutCol>
       <AboutCol>
         <Icon src={help} />
-        <H3>our mission</H3>
+        <H3 style={{ paddingTop: "10px" }}>Help & Support</H3>
         <Details>
           <P>
-            Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus
-            ut eta esami vera dolor sit amet consect
+            We are Supported by United Nations, Ministry of Health, and Ministry
+            of Social Affairs
           </P>
         </Details>
         <ReadMore href="#">Read more</ReadMore>
       </AboutCol>
       <AboutCol>
         <Icon src={programs} />
-        <H3>our mission</H3>
+        <H3>Programs</H3>
         <Details>
           <P>
-            Lorem ipsum dolor sit amet consect adipisscin elit proin vel lectus
-            ut eta esami vera dolor sit amet consect
+            Our organzations mainly provide medical, food , and clothing
+            support.
           </P>
         </Details>
         <ReadMore href="#">Read more</ReadMore>

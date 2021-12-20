@@ -25,7 +25,7 @@ export const Organization = () => {
           color: "#fff",
           padding: "0.2rem",
           position: "absolute",
-          top: "60%",
+          top: "62%",
           right: "45%",
           cursor: "pointer",
         }}

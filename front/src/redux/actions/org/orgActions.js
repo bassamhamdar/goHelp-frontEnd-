@@ -15,6 +15,9 @@ export const loginOrg = async (cred) => {
     localStorage.setItem("org_token", data.access_token);
     localStorage.setItem("org_id", data.data[0].id);
     localStorage.setItem("org_name", data.data[0].name);
+    toast.success("Logged in");
+  } else {
+    toast.error("Wrong Credentials");
   }
 };
 export const logoutOrg = async () => {
