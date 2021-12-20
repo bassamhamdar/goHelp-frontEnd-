@@ -14,6 +14,7 @@ import { User } from "./pages/user/User";
 import { OrgLogin } from "./pages/org/OrgLogin";
 import { OrgProtectedRoute } from "./components/OrgProtectedRoute";
 import { Org } from "./pages/org/Org";
+import { Nav } from "./components/Nav";
 function App() {
   const history = useHistory();
   const path = history.location.pathname;
@@ -21,7 +22,7 @@ function App() {
   return (
     <Wrapper>
       {condition === "dashboard" ? <SideNav /> : null}
-
+      {condition === "dashboard" ? null : <Nav />}
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/user/register" component={UserRegister} />

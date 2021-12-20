@@ -6,7 +6,6 @@ import { OrgProfile } from "./OrgProfile";
 export const Org = () => {
   return (
     <>
-      <Nav />
       <Route path="/org/profile" exact component={OrgProfile} />
     </>
   );
