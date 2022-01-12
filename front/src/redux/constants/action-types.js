@@ -1,6 +1,7 @@
 export const ActionTypes = {
   SET_ADMIN: "SET_ADMIN",
   SET_USER: "SET_USER",
+  SET_ORG: "SET_ORG",
   FETCH_USERS: "FETCH_USERS",
   FETCH_ORGS: "FETCH_ORGS",
   SEARCH_ORGS: "SEARCH_ORGS",

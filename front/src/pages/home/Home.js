@@ -50,7 +50,12 @@ export const Home = () => {
         </FlexItem>
       </Flex>
       <Organization>
-        <RegisterH1>For Organizations {"->"} </RegisterH1>
+        <RegisterH1
+          onClick={() => navigate.push("/org/login")}
+          style={{ cursor: "pointer" }}
+        >
+          For Organizations {"->"}{" "}
+        </RegisterH1>
         <RegisterButton onClick={() => handleClick()}>
           Register Here
         </RegisterButton>

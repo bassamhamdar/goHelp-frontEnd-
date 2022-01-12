@@ -7,7 +7,7 @@ export const RegisterUser = async (data) => {
   data = response.data;
   console.log("set use", data);
 };
-export const logoutUser = async () => {
+export const logoutUser = () => async (dispatch) => {
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("user_token")}`,
@@ -19,10 +19,14 @@ export const logoutUser = async () => {
     localStorage.removeItem("user_token");
     localStorage.removeItem("user_id");
     localStorage.removeItem("user_name");
+    dispatch({
+      type: ActionTypes.SET_USER,
+      payload: localStorage.getItem("user_token"),
+    });
     toast.success("logged out");
   }
 };
-export const loginUser = async (cred) => {
+export const LoginUser = (cred) => async (dispatch) => {
   const response = await userApi.post("/login", cred);
   console.log("login response", response);
   const data = response.data;
@@ -30,7 +34,11 @@ export const loginUser = async (cred) => {
   if (data.success) {
     localStorage.setItem("user_token", data.access_token);
     localStorage.setItem("user_id", data.data[0].id);
-    localStorage.setItem("user_name", data.data[0].firstName);
+    localStorage.setItem("user_name", data.data[0].firstname);
+    dispatch({
+      type: ActionTypes.SET_USER,
+      payload: localStorage.getItem("user_token"),
+    });
     toast.success("logged in");
   } else {
     toast.error("wrong Credentials");

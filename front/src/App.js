@@ -15,14 +15,19 @@ import { OrgLogin } from "./pages/org/OrgLogin";
 import { OrgProtectedRoute } from "./components/OrgProtectedRoute";
 import { Org } from "./pages/org/Org";
 import { Nav } from "./components/Nav";
+import { useSelector } from "react-redux";
 function App() {
+  const user_token = useSelector((state) => state.users.user_token);
+  const org_token = useSelector((state) => state.orgs.org_token);
   const history = useHistory();
   const path = history.location.pathname;
   const condition = path.split("/", 2)[1];
   return (
     <Wrapper>
-      {condition === "dashboard" ? <SideNav /> : null}
-      {condition === "dashboard" ? null : <Nav />}
+      {condition === "dashboard" && <SideNav />}
+      {condition !== "dashboard" && (
+        <Nav user_token={user_token} org_token={org_token} />
+      )}
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/user/register" component={UserRegister} />

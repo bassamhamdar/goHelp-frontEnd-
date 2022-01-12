@@ -10,8 +10,9 @@ import {
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { loginUser } from "../../redux/actions/user/userActions";
+import { LoginUser } from "../../redux/actions/user/userActions";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
 export default function UserLogin() {
   const schema = yup.object().shape({
     email: yup.string().min(3).required(),
@@ -24,9 +25,9 @@ export default function UserLogin() {
     formState: { errors },
     reset,
   } = useForm({ resolver: yupResolver(schema) });
-
+  const dispatch = useDispatch();
   const onSubmit = async (data) => {
-    await loginUser(data);
+    await dispatch(LoginUser(data));
     history.push("/user/org");
     reset();
   };

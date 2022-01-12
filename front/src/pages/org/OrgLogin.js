@@ -12,6 +12,7 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useHistory } from "react-router-dom";
 import { loginOrg } from "../../redux/actions/org/orgActions";
+import { useDispatch } from "react-redux";
 export const OrgLogin = () => {
   const schema = yup.object().shape({
     email: yup.string().min(3).required(),
@@ -24,9 +25,9 @@ export const OrgLogin = () => {
     formState: { errors },
     reset,
   } = useForm({ resolver: yupResolver(schema) });
-
+  const dispatch = useDispatch();
   const onSubmit = async (data) => {
-    await loginOrg(data);
+    await dispatch(loginOrg(data));
     history.push("/org/profile");
     reset();
   };

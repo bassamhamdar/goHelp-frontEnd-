@@ -4,6 +4,7 @@ const intialState = {
   org: [],
   searchOrg: [],
   profile: [],
+  org_token: localStorage.getItem("org_token"),
 };
 export const OrgReducer = (state = intialState, { type, payload }) => {
   switch (type) {
@@ -26,6 +27,8 @@ export const OrgReducer = (state = intialState, { type, payload }) => {
       return { ...state, org: payload };
     case ActionTypes.FETCH_ORG_PROFILE:
       return { ...state, profile: payload };
+    case ActionTypes.SET_ORG:
+      return { ...state, org_token: payload };
     default:
       return state;
   }

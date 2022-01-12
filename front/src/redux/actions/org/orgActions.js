@@ -7,7 +7,7 @@ export const RegisterOrg = async (data) => {
   data = response.data;
   console.log("set use", data);
 };
-export const loginOrg = async (cred) => {
+export const loginOrg = (cred) => async (dispatch) => {
   const response = await orgApi.post("/login", cred);
   const data = response.data;
   console.log("log org", data);
@@ -15,12 +15,16 @@ export const loginOrg = async (cred) => {
     localStorage.setItem("org_token", data.access_token);
     localStorage.setItem("org_id", data.data[0].id);
     localStorage.setItem("org_name", data.data[0].name);
+    dispatch({
+      type: ActionTypes.SET_ORG,
+      payload: localStorage.getItem("org_token"),
+    });
     toast.success("Logged in");
   } else {
     toast.error("Wrong Credentials");
   }
 };
-export const logoutOrg = async () => {
+export const logoutOrg = () => async (dispatch) => {
   const config = {
     headers: {
       Authorization: `Bearer ${localStorage.getItem("org_token")}`,
@@ -34,6 +38,10 @@ export const logoutOrg = async () => {
     localStorage.removeItem("org_token");
     localStorage.removeItem("org_id");
     localStorage.removeItem("org_name");
+    dispatch({
+      type: ActionTypes.SET_ORG,
+      payload: localStorage.getItem("org_token"),
+    });
   }
 };
 

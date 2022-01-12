@@ -4,21 +4,25 @@ import { logoutUser } from "../redux/actions/user/userActions";
 import { logoutOrg } from "../redux/actions/org/orgActions";
 import { Logo, NavMenu, NavSection, NavSpan } from "../style/nav";
 import { MdAccountCircle } from "react-icons/md";
-export const Nav = () => {
+import { useDispatch } from "react-redux";
+
+export const Nav = ({ user_token, org_token }) => {
+  const dispatch = useDispatch();
   const history = useHistory();
   const navigate = (path) => history.push(path);
-  const user_token = localStorage.getItem("user_token");
-  const org_token = localStorage.getItem("org_token");
   const handleClick = async () => {
-    await logoutUser();
+    await dispatch(logoutUser());
     history.push("/");
   };
   const handleOrgLogout = async () => {
-    await logoutOrg();
+    await dispatch(logoutOrg());
     history.push("/");
   };
+
   return (
     <NavMenu>
+      {console.log("user", user_token)}
+      {console.log("org", org_token)}
       <NavSection
         style={{
           width: "33.33%",
