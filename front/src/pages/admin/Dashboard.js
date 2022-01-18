@@ -11,10 +11,10 @@ export const Dashboard = () => {
   return (
     <Wrapper>
       <Route path="/dashboard" exact component={HomeDashboard} />
-      <Route path="/dashboard/user" exact component={UsersDashboard} />
-      <Route path="/dashboard/org" exact component={OrgDashboard} />
-      <Route path="/dashboard/faq" exact component={FaqDashboard} />
-      <Route path="/dashboard/about" exact component={AboutDashboard} />
+      <Route path="/dashboard/user" component={UsersDashboard} />
+      <Route path="/dashboard/org" component={OrgDashboard} />
+      <Route path="/dashboard/faq" component={FaqDashboard} />
+      <Route path="/dashboard/about" component={AboutDashboard} />
     </Wrapper>
   );
 };

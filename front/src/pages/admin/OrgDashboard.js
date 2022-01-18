@@ -5,20 +5,37 @@ import { SiAdblock } from "react-icons/si";
 import { ImProfile } from "react-icons/im";
 import { AiOutlineCheckCircle } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { FetchOrgs } from "../../redux/actions/admin/adminActions";
+import {
+  ApproveOrganization,
+  FetchOrgs,
+} from "../../redux/actions/admin/adminActions";
 import { toast } from "react-toastify";
 import { OrgProfilePopUp } from "../../components/OrgProfilePopUp";
 
 export const OrgDashboard = () => {
   const orgs = useSelector((state) => state.orgs.org);
+  const [Id, setId] = useState();
+  const registered = [];
+  const unRegistered = [];
+  if (orgs) {
+    orgs.forEach((item) => {
+      if (item.status === 1) {
+        registered.push(item);
+      } else {
+        unRegistered.push(item);
+      }
+    });
+  }
   const [visible, setVisible] = useState(false);
   const dispatch = useDispatch();
+  const Approve = (id) => dispatch(ApproveOrganization(id));
+  const DisApprove = (id) => dispatch(ApproveOrganization(id));
   useEffect(() => {
     dispatch(FetchOrgs());
-  }, [dispatch]);
+  }, [dispatch, Id]);
   return (
     <>
-      {console.log("orgs", orgs)}
+      {console.log("orgs", registered, unRegistered)}
       <TtilePage style={{ fontSize: "30px" }}>Organizations</TtilePage>
       <StyledTable org>
         <caption>Organizations in goHelp</caption>
@@ -32,24 +49,28 @@ export const OrgDashboard = () => {
           </tr>
         </thead>
         <tbody>
-          {orgs.map((org, i) => (
-            <tr>
-              <td>{org.name}</td>
-              <td>{org.activity.name}</td>
-              <td>{org.email}</td>
-              {org.status === 1 ? <td>Approved</td> : <td>Not Approved</td>}
-              <td>
-                <SiAdblock
-                  style={{ color: "red", padding: "10px", cursor: "pointer" }}
-                  onClick={() => toast.success("Blocked")}
-                />
-                <ImProfile
-                  style={{ padding: "10px", cursor: "pointer" }}
-                  onClick={() => setVisible(true)}
-                />
-              </td>
-            </tr>
-          ))}
+          {registered &&
+            registered.map((org, i) => (
+              <tr key={i}>
+                <td>{org.name}</td>
+                <td>{org.activity.name}</td>
+                <td>{org.email}</td>
+                {org.status === 1 ? <td>Approved</td> : <td>Not Approved</td>}
+                <td>
+                  <SiAdblock
+                    style={{ color: "red", padding: "10px", cursor: "pointer" }}
+                    onClick={() => {
+                      DisApprove(org.id);
+                      setId(org.id);
+                    }}
+                  />
+                  <ImProfile
+                    style={{ padding: "10px", cursor: "pointer" }}
+                    onClick={() => setVisible(true)}
+                  />
+                </td>
+              </tr>
+            ))}
         </tbody>
       </StyledTable>
       <Ttile style={{ fontSize: "30px" }}>Register Requests</Ttile>;
@@ -71,43 +92,25 @@ export const OrgDashboard = () => {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Restart</td>
-            <td>Medical</td>
-            <td>Restart@gmail.com</td>
-            <td>False</td>
-            <td>
-              <AiOutlineCheckCircle
-                style={{ padding: "10px", cursor: "pointer" }}
-                onClick={() => toast.success("Approved")}
-              />
-              <ImProfile style={{ padding: "10px", cursor: "pointer" }} />
-            </td>
-          </tr>
-          <tr>
-            <td>Help Lebanon</td>
-            <td>Others</td>
-            <td>Help@gmail.com</td>
-            <td>False</td>
-            <td>
-              <AiOutlineCheckCircle
-                style={{ padding: "10px", cursor: "pointer" }}
-                o
-              />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
-
-          <tr>
-            <td>Nahnoo</td>
-            <td>Others</td>
-            <td>Nahno@gmail.com</td>
-            <td>False</td>
-            <td>
-              <AiOutlineCheckCircle style={{ padding: "10px" }} />
-              <ImProfile style={{ padding: "10px" }} />
-            </td>
-          </tr>
+          {unRegistered &&
+            unRegistered.map((org, i) => (
+              <tr key={i}>
+                <td>{org.name}</td>
+                <td>{org.activity.name}</td>
+                <td>{org.email}</td>
+                <td>false</td>
+                <td>
+                  <AiOutlineCheckCircle
+                    style={{ padding: "10px", cursor: "pointer" }}
+                    onClick={() => {
+                      Approve(org.id);
+                      setId(org.id);
+                    }}
+                  />
+                  <ImProfile style={{ padding: "10px", cursor: "pointer" }} />
+                </td>
+              </tr>
+            ))}
         </tbody>
       </StyledTable>
       {visible ? <OrgProfilePopUp setVisible={setVisible} /> : null}

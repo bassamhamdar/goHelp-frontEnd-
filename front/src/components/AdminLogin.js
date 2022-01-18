@@ -11,10 +11,13 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
+import { AdminLogin } from "../redux/actions/admin/adminActions";
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
   const schema = yup.object().shape({
-    username: yup.string().min(3).required(),
+    email: yup.string().min(3).required(),
     password: yup.string().required(),
   });
 
@@ -24,16 +27,20 @@ export default function Login() {
     formState: { errors },
     reset,
   } = useForm({ resolver: yupResolver(schema) });
-  const onSubmit = (data) => {
-    console.log("ll", data);
+  const Dispatch = useDispatch();
+  const history = useHistory();
+  const onSubmit = async (data) => {
+    console.log(data);
+    await Dispatch(AdminLogin(data));
+    history.push("/dashboard");
     reset();
   };
-  const LoggedUser = useSelector((state) => state);
+  const LoggedAdmin = useSelector((state) => state);
   return (
     <LoginForm onSubmit={handleSubmit(onSubmit)}>
-      {console.log(LoggedUser)}
+      {console.log(LoggedAdmin)}
       <Title>Welcome Admin</Title>
-      <Input placeholder="Username" {...register("username")} />
+      <Input placeholder="Email" {...register("email")} />
       <Error>{errors.username?.message}</Error>
       <Input placeholder="Password" {...register("password")} type="password" />
       <Error>{errors.password?.message}</Error>
