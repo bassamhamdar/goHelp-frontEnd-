@@ -9,7 +9,6 @@ import {
   ApproveOrganization,
   FetchOrgs,
 } from "../../redux/actions/admin/adminActions";
-import { toast } from "react-toastify";
 import { OrgProfilePopUp } from "../../components/OrgProfilePopUp";
 
 export const OrgDashboard = () => {

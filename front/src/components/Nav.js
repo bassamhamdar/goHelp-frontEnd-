@@ -2,7 +2,15 @@ import React from "react";
 import { useHistory } from "react-router";
 import { logoutUser } from "../redux/actions/user/userActions";
 import { logoutOrg } from "../redux/actions/org/orgActions";
-import { Logo, NavMenu, NavSection, NavSpan } from "../style/nav";
+import {
+  Logo,
+  NavLogo,
+  NavMenu,
+  NavSection,
+  NavSpan,
+  Burger,
+  Line,
+} from "../style/nav";
 import { MdAccountCircle } from "react-icons/md";
 import { useDispatch } from "react-redux";
 
@@ -21,19 +29,16 @@ export const Nav = ({ user_token, org_token }) => {
 
   return (
     <NavMenu>
-      {console.log("user", user_token)}
-      {console.log("org", org_token)}
-      <NavSection
+      <NavLogo
         style={{
           width: "33.33%",
           display: "flex",
-          justifyContent: "space-around",
           fontWeight: "bold",
           fontSize: "25px",
         }}
       >
         <Logo onClick={() => navigate("/")}></Logo>
-      </NavSection>
+      </NavLogo>
       <NavSection
         style={{
           width: "33.33%",
@@ -88,6 +93,11 @@ export const Nav = ({ user_token, org_token }) => {
           <NavSpan onClick={() => handleOrgLogout()}>Log out</NavSpan>
         )}
       </NavSection>
+      <Burger style={{ paddingRight: "1.7rem" }}>
+        <Line></Line>
+        <Line></Line>
+        <Line></Line>
+      </Burger>
     </NavMenu>
   );
 };

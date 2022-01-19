@@ -4,6 +4,7 @@ import {
   CreateForm,
   CreateInput,
   CreateText,
+  Error,
 } from "../style/createPost";
 
 import { useForm } from "react-hook-form";
@@ -35,11 +36,16 @@ export const CreatePost = ({ setVisible }) => {
       <CreateForm onSubmit={handleSubmit(onSubmit)}>
         <CreateInput type="hidden" value={org_id} {...register("org_id")} />
         <CreateInput placeholder="Post Title ..." {...register("title")} />
+        <Error>{errors.title?.message}</Error>
         <CreateText
           placeholder="Write what you need ..."
           {...register("description")}
         />
+        <Error>{errors.description?.message}</Error>
+
         <CreateInput placeholder="image" type="file" {...register("image")} />
+        <Error>{errors.image?.message}</Error>
+
         <CreateButton type="submit" value="Create" />
         <CreateButton
           value="Cancle"

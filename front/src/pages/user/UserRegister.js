@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { RegisterUser } from "../../redux/actions/user/userActions";
-import Background from "../../image/hands.jpg";
 export const UserRegister = () => {
   const schema = yup.object().shape({
     firstname: yup.string().min(3).required(),
@@ -26,13 +25,11 @@ export const UserRegister = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset,
   } = useForm({ resolver: yupResolver(schema) });
-  const onSubmit = (data) => {
-    console.log(data);
-    RegisterUser(data);
-    reset();
+  const onSubmit = async (data) => {
+    await RegisterUser(data);
   };
+
   return (
     <div className="signupUser">
       <h1
@@ -82,7 +79,7 @@ export const UserRegister = () => {
         />
         <Error>{errors.password?.message}</Error>
         <Input placeholder="ID number" {...register("idCard")} />
-        <Error>{errors.IDnumber?.message}</Error>
+        <Error>{errors.idCard?.message}</Error>
         <Input placeholder="Phone" {...register("phone")} />
         <Error>{errors.phone?.message}</Error>
         <Input placeholder="address" {...register("address")} />

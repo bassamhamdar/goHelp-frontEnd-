@@ -4,7 +4,6 @@ import { FetchOrgs, SearchOrgs } from "../../redux/actions/user/userActions";
 import { StyledTable } from "../../style/table";
 import { ImProfile } from "react-icons/im";
 import { useHistory } from "react-router-dom";
-import { H1 } from "../../style/home";
 export const OrgTable = () => {
   const dispatch = useDispatch();
   const { org, searchOrg } = useSelector((state) => state.orgs);

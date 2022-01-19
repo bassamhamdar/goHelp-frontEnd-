@@ -5,7 +5,11 @@ import { toast } from "react-toastify";
 export const RegisterUser = async (data) => {
   const response = await userApi.post(`/register`, data);
   data = response.data;
-  console.log("set use", data);
+  if (data.success) {
+    toast.success("Your request has been sent!");
+  } else {
+    data.errors.map((msg) => toast.error(msg));
+  }
 };
 export const logoutUser = () => async (dispatch) => {
   const config = {

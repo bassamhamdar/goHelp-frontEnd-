@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  Arrow,
   Circle,
   Flex,
   FlexItem,
@@ -54,8 +55,10 @@ export const Home = () => {
           onClick={() => navigate.push("/org/login")}
           style={{ cursor: "pointer" }}
         >
-          For Organizations {"->"}{" "}
+          For Organizations
         </RegisterH1>
+        <Arrow>{"->"}</Arrow>
+
         <RegisterButton onClick={() => handleClick()}>
           Register Here
         </RegisterButton>

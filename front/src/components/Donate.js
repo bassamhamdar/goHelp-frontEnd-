@@ -6,7 +6,6 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { DonateOnPost } from "../redux/actions/user/userActions";
 export const Donate = ({ setVisible, post_id }) => {
-  const user_id = localStorage.getItem("user_id");
   const schema = yup.object().shape({
     message: yup.string().required(),
   });

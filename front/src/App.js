@@ -21,6 +21,10 @@ function App() {
   const user_token = useSelector((state) => state.users.user_token);
   const org_token = useSelector((state) => state.orgs.org_token);
   const admin_token = useSelector((state) => state.admin.admin_token);
+  window.onbeforeunload = () => {
+    localStorage.clear();
+  };
+
   return (
     <Wrapper>
       {admin_token && <SideNav />}

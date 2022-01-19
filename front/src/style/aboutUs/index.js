@@ -2,14 +2,15 @@ import styled from "styled-components";
 
 export const AboutRow = styled.div`
   display: flex;
-  justify-content: space-aroud;
+  flex-wrap: wrap;
+  justify-content: space-around;
   text-align: center;
 `;
 export const AboutCol = styled.div`
   margin: 2rem;
   padding: 2rem;
   min-height: 200px;
-  width: 430px;
+  width: 299px;
   background: #005c55;
 `;
 
@@ -21,5 +22,7 @@ export const Icon = styled.img`
 `;
 export const H3 = styled.h3``;
 export const Details = styled.div``;
-export const P = styled.p``;
+export const P = styled.p`
+  font-size: 1rem;
+`;
 export const ReadMore = styled.a``;
