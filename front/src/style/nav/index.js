@@ -8,15 +8,23 @@ export const NavMenu = styled.div`
   position: fixed;
   top: 0;
   display: flex;
-  justify-content: flex-start;
+  justify-content: space-between;
+  transition: all 0.2s ease;
 `;
-export const NavLogo = styled.div`
-  width: 33.33%;
-`;
+
 export const NavSection = styled.div`
-  width: 33.33%;
-  @media (max-width: 700px) {
-    display: none !important;
+  display: ${(props) => props.display};
+  transition: all 0.2s ease;
+  width: 38rem;
+  justify-content: space-around;
+  @media (max-width: 730px) {
+    display: ${(props) =>
+      props.display === "inline" ? "inline" : "none!important"};
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #00857c;
+    width: 10rem;
   }
 `;
 
@@ -25,6 +33,7 @@ export const NavSpan = styled.p`
   color: white;
   font-family: system-ui;
   margin-top: 15px;
+  transition: all 0.2s ease;
 `;
 export const Logo = styled.div`
   background-image: url(${image});
@@ -32,15 +41,15 @@ export const Logo = styled.div`
   width: 104px;
   background-size: 100% 100%;
   cursor: pointer;
-  margin-left: 10%;
+  margin-left: 2rem;
 `;
 export const Burger = styled.div`
   cursor: pointer;
-  width: 43px;
+  padding: 0.7rem;
+  margin-right: 1.2rem;
   position: absolute;
-  top: 10;
   right: 0;
-  @media (min-width: 700px) {
+  @media (min-width: 731px) {
     display: none !important;
   }
 `;

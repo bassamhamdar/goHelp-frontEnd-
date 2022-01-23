@@ -1,20 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router";
 import { logoutUser } from "../redux/actions/user/userActions";
 import { logoutOrg } from "../redux/actions/org/orgActions";
-import {
-  Logo,
-  NavLogo,
-  NavMenu,
-  NavSection,
-  NavSpan,
-  Burger,
-  Line,
-} from "../style/nav";
+import { Logo, NavMenu, NavSection, NavSpan, Burger, Line } from "../style/nav";
 import { MdAccountCircle } from "react-icons/md";
 import { useDispatch } from "react-redux";
 
 export const Nav = ({ user_token, org_token }) => {
+  const [display, setDisplay] = useState("flex");
+  const handleDisplay = () => {
+    if (display === "inline") return setDisplay("flex");
+    return setDisplay("inline");
+  };
   const dispatch = useDispatch();
   const history = useHistory();
   const navigate = (path) => history.push(path);
@@ -29,23 +26,8 @@ export const Nav = ({ user_token, org_token }) => {
 
   return (
     <NavMenu>
-      <NavLogo
-        style={{
-          width: "33.33%",
-          display: "flex",
-          fontWeight: "bold",
-          fontSize: "25px",
-        }}
-      >
-        <Logo onClick={() => navigate("/")}></Logo>
-      </NavLogo>
-      <NavSection
-        style={{
-          width: "33.33%",
-          display: "flex",
-          justifyContent: "space-around",
-        }}
-      >
+      <Logo onClick={() => navigate("/")}></Logo>
+      <NavSection display={display}>
         {user_token ? (
           <>
             <NavSpan onClick={() => navigate("/user/org")}>
@@ -64,16 +46,7 @@ export const Nav = ({ user_token, org_token }) => {
             <NavSpan>Contact us</NavSpan>
           </>
         )}
-      </NavSection>
-      <NavSection
-        style={{
-          width: "33.33%",
-          display: "flex",
-          justifyContent: "space-evenly",
-          gap: "1rem",
-          marginRight: "1rem",
-        }}
-      >
+
         {user_token || org_token ? null : (
           <NavSpan onClick={() => navigate("/user/register")}>Sign up</NavSpan>
         )}
@@ -93,7 +66,7 @@ export const Nav = ({ user_token, org_token }) => {
           <NavSpan onClick={() => handleOrgLogout()}>Log out</NavSpan>
         )}
       </NavSection>
-      <Burger style={{ paddingRight: "1.7rem" }}>
+      <Burger onClick={() => handleDisplay("inline")}>
         <Line></Line>
         <Line></Line>
         <Line></Line>

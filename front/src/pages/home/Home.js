@@ -22,14 +22,12 @@ import Request from "../../image/help.webp";
 import Ngo from "../../image/ngo.jpg";
 import { AboutUs } from "./AboutUs";
 import { useHistory } from "react-router-dom";
-import { Nav } from "../../components/Nav";
 
 export const Home = () => {
   const navigate = useHistory();
   const handleClick = () => navigate.push("/org/register");
   return (
     <>
-      <Nav />
       <HeaderImage style={{ marginTop: "60px" }}>
         <ImageHeader>Because they need your help</ImageHeader>
         <ImageParg>do not let them down</ImageParg>

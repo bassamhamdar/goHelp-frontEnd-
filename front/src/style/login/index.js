@@ -8,27 +8,26 @@ export const Wrapper = styled.section`
 
 export const LoginForm = styled.form`
   left: 50%;
-  top: 40%;
+  top: 50%;
   position: absolute;
   transform: translate(-50%, -50%);
-  width: 25%;
+  width: 16rem;
 `;
 
 export const Input = styled.input`
-  width: 100%;
-  padding: 0.3rem;
-  margin: 0.7rem;
+  width: 99%;
+  padding: 0.3rem 0;
+  margin: 0.7rem 0;
 `;
 export const LoginInput = styled.input`
   background: ${(props) => (props.login ? "#00857c" : "#3D9970")};
   color: white;
   font-size: 1em;
-  margin: 1em;
-  padding: 0.25em 1em;
-
   border: none;
   border-radius: 3px;
   cursor: pointer;
+  width: 100%;
+  padding: 0.3rem 0;
 `;
 export const Button = styled.button`
   background: ${(props) => (props.login ? "#00857c" : "#3D9970")};
